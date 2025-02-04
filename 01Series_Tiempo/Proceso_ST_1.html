@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Series de tiempo InSAR en la Supercomputadora Miztli UNAM &#8212; Scientific Python QuickStart</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01Series_Tiempo/Proceso_ST_1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Comparación de imágenes descargadas vs ssara_listing.txt" href="Comparacion/Busqueda.html" />
+    <link rel="prev" title="Documentación del laboratorio del Servicio Geodésico" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logoGoefisica.png" class="logo__image only-light" alt="Scientific Python QuickStart - Home"/>
+    <img src="../_static/logoGoefisica.png" class="logo__image only-dark pst-js-only" alt="Scientific Python QuickStart - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Series de tiempo InSAR</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Series de tiempo InSAR en la Supercomputadora Miztli UNAM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Comparacion/Busqueda.html">Comparación de imágenes descargadas vs ssara_listing.txt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mintpy.html">MintPy en Miztli</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Peligro por subsidencia</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02PeligroSubsidencia/Peligro.html">Peligro por Subsidencia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vulnerabilidad Socioeconómica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03VulnerabilidadSocial/Vulnerabilidad_v1.5.html">Evaluación de la Vulnerabilidad Socioeconómica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05Resultados/Resultados.html">Peligro por Subsidencia y Vulnerabilidad Socioeconómica</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/01Series_Tiempo/Proceso_ST_1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Series de tiempo InSAR en la Supercomputadora Miztli UNAM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-datos">1. Preparación de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-carpetas">2. Generación de carpetas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descarga-de-imagenes-sar">3. Descarga de imagenes SAR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-imagenes-no-coincide">3.1 Número de imágenes no coincide</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#envio-para-procesar-las-imagenes-para-la-serie-de-tiempo">4. Envío para procesar las imágenes para la serie de tiempo.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="series-de-tiempo-insar-en-la-supercomputadora-miztli-unam">
+<h1>Series de tiempo InSAR en la Supercomputadora Miztli UNAM<a class="headerlink" href="#series-de-tiempo-insar-en-la-supercomputadora-miztli-unam" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>Este documento describe, los pasos a seguir del flujo de trabajo para realizar una serie de tiempo con InSAR, usando imágenes de satélite de Sentinel 1A, haciendo uso de Miztli, ISCE2+InSAR, y Mintpy.</p>
+<p>Se recomienda antes de iniciar leer la documentación de los comandos básicos de Miztli, el cual se puede encontrar en la pagina <a class="reference external" href="https://www.super.unam.mx/guias-y-manuales">Supercomputo de la UNAM</a>.</p>
+<p>Se ingresa a Miztli por medio de un usuario y contraseña, accediendo por medio de una conexión SSH, en donde se coloca el nombre del usuario un &#64; seguido de la dirección a conectar.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>usuario@Direccion<span class="w"> </span>IP
+</pre></div>
+</div>
+<p>Los datos que se ingresan es el usuario y contraseña del Dr. Enrique Cabral Cano, que es el encargado del Servicio Geodésico y de Cartografiá Digital, es de su uso exclusivo, y el acceso solo se otorga mediante su autorización.</p>
+<p>Para ingresar a Miztli abrimos la terminal de nuestro sistema operativo, en linux la terminal, en windows cmd o powershell, Se escribe el siguiente comandos</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-Y<span class="w"> </span>usuario@Direccion<span class="w"> </span>IP
+</pre></div>
+</div>
+<p>Pide la contraseña, se ingresa y arroja el mensaje de bienvenida de Miztli, indicando que la conexión fue exitosa.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usr@compu-name:~$<span class="w"> </span>ssh<span class="w"> </span>-Y<span class="w"> </span>ecabral@132.247.177.99
+ecabral@132.247.177.99<span class="err">&#39;</span>s<span class="w"> </span>password:<span class="w"> </span>
+Last<span class="w"> </span>login:<span class="w"> </span>Mon<span class="w"> </span>Sep<span class="w">  </span><span class="m">4</span><span class="w"> </span><span class="m">13</span>:10:45<span class="w"> </span><span class="m">2023</span><span class="w"> </span>from<span class="w"> </span>zianya.geofisica.unam.mx
+<span class="o">================================================================</span>
+<span class="w">   </span>El<span class="w"> </span>RESPALDO<span class="w"> </span>de<span class="w"> </span>informacion<span class="w"> </span>es<span class="w"> </span>RESPONSABILIDAD<span class="w"> </span>del<span class="w"> </span><span class="nv">USUARIO</span>
+<span class="o">================================================================</span>
+___<span class="w">  </span>____<span class="w">     </span>_<span class="w">   </span>_<span class="w"> </span>_<span class="w"> </span>
+<span class="p">|</span><span class="w">  </span><span class="se">\/</span><span class="w">  </span><span class="o">(</span>_<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="o">)</span><span class="w"> </span>
+<span class="p">|</span><span class="w"> </span>.<span class="w">  </span>.<span class="w"> </span><span class="p">|</span>_<span class="w"> </span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="w"> </span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\/</span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="w">  </span>/<span class="w"> </span>__<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>Atencion<span class="w"> </span>a<span class="w"> </span>usuarios:<span class="w"> </span>ayuda@super.unam.mx
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>/<span class="w"> </span>/<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">			     </span><span class="m">5622</span>-8599<span class="w">	</span>
+<span class="se">\_</span><span class="p">|</span><span class="w">  </span><span class="p">|</span>_/_/___<span class="p">|</span><span class="se">\_</span>_<span class="p">|</span>_<span class="p">|</span>_<span class="p">|</span><span class="w">       </span>Administracion:<span class="w"> </span><span class="m">5622</span>-8577<span class="w"> </span><span class="m">5622</span>-8164
+
+<span class="o">================================================================</span>
+<span class="w">          </span>Horario<span class="w"> </span>de<span class="w"> </span>Mantenimiento:<span class="w"> </span>Lunes<span class="w"> </span><span class="m">9</span>:00<span class="w"> </span>a.m.<span class="w"> </span>-<span class="w"> </span><span class="m">12</span>:00<span class="w"> </span>p.m.
+<span class="w">        			     </span>Tiempo<span class="w"> </span>del<span class="w"> </span>Centro<span class="w"> </span>de<span class="w"> </span><span class="nv">Mexico</span>
+<span class="o">================================================================</span>
+<span class="w">   </span>El<span class="w"> </span>RESPALDO<span class="w"> </span>de<span class="w"> </span>informacion<span class="w"> </span>es<span class="w"> </span>RESPONSABILIDAD<span class="w"> </span>del<span class="w"> </span><span class="nv">USUARIO</span>
+<span class="o">================================================================</span>
+Atentamente
+Area<span class="w"> </span>de<span class="w"> </span>administracion<span class="w"> </span>de<span class="w"> </span><span class="nv">supercomputo</span>
+<span class="o">================================================================</span>
+-bash:<span class="w"> </span>setenv:<span class="w"> </span>no<span class="w"> </span>se<span class="w"> </span>encontró<span class="w"> </span>la<span class="w"> </span>orden
+<span class="o">[</span>ecabral@mn325<span class="w"> </span>~<span class="o">]</span>$
+</pre></div>
+</div>
+<p>Para poder realizar o enviar instrucciones, tenemos que ingresar los siguientes comandos uno a uno</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>s.c<span class="w">  </span>
+s.bgood
+</pre></div>
+</div>
+<p>Se muestra las siguientes lineas.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>ecabral@mn325<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>s.c
+<span class="o">[</span>ecabral@mn325<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>s.bgood
+sourcing<span class="w"> </span>/tmpu/ecabral_g/ecabral/apps/rsmas_insar/default_isce22.bash<span class="w"> </span>...
+sourcing<span class="w"> </span>/tmpu/ecabral_g/ecabral/apps/rsmas_insar/bashfiles/platforms.bash<span class="w"> </span>...
+sourcing<span class="w"> </span>/tmpu/ecabral_g/ecabral/apps/rsmas_insar/bashfiles/alias.bash<span class="w"> </span>...
+sourcing<span class="w"> </span>/tmpu/ecabral_g/ecabral/apps/rsmas_insar/bashfiles/custom.bash<span class="w"> </span>...
+sourcing<span class="w"> </span>/tmpu/ecabral_g/ecabral/apps/rsmas_insar/source_dario_extras.sh<span class="w">  </span>...
+/home/ecabral_g/ecabral
+//mn325/home/ecabral_g/ecabral<span class="o">[</span><span class="m">1003</span><span class="o">]</span>
+</pre></div>
+</div>
+<section id="preparacion-de-datos">
+<h2>1. Preparación de datos<a class="headerlink" href="#preparacion-de-datos" title="Link to this heading">#</a></h2>
+<p>A continuación, se accede a la carpeta <strong>Temporal</strong>, donde se encuentra el archivo <strong>Templete</strong>, el cual contiene la configuración de los parámetros necesarios para el procesamiento con <strong>ISCE+</strong> y <strong>Mintpy</strong>. Para desplazarse a dicha carpeta, se utiliza el siguiente comando.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$TE</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span></code> es el comando que sirve para cambiar de directorio y tiene la siguiente estructura.<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">ruta_del_directorio</span></code></p>
+</div>
+<p>Se muestra el siguiente resultado.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/home/ecabral_g/ecabral<span class="o">[</span><span class="m">1004</span><span class="o">]</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$TE</span>
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES<span class="o">[</span><span class="m">1005</span><span class="o">]</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Dentro de la carpeta podemos ver que hay dentro de ella, podemos usar el comando <code class="docutils literal notranslate"><span class="pre">dir</span></code> o <code class="docutils literal notranslate"><span class="pre">ls</span></code>, nos listan el contenido, se agrego un <code class="docutils literal notranslate"><span class="pre">-l</span></code> al comando, para listar el contenido.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES<span class="o">[</span><span class="m">1005</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">196</span>
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">4096</span><span class="w"> </span>mar<span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>Cabral
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">4096</span><span class="w"> </span>ago<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">10</span>:50<span class="w"> </span>CDMX
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">4096</span><span class="w"> </span>dic<span class="w"> </span><span class="m">25</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>Colima
+drwxrwxr-x<span class="w"> </span><span class="m">5</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">16384</span><span class="w"> </span>ago<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">10</span>:51<span class="w"> </span>Enrique
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">75735</span><span class="w"> </span>ago<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">16</span>:35<span class="w"> </span>example.log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">21636</span><span class="w"> </span>ago<span class="w"> </span><span class="m">18</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>isce.log
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">4096</span><span class="w"> </span>ago<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">10</span>:53<span class="w"> </span>Jalisco
+drwxrwxr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">12288</span><span class="w"> </span>jul<span class="w">  </span><span class="m">5</span><span class="w"> </span><span class="m">22</span>:28<span class="w"> </span>Josue
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">4096</span><span class="w"> </span>mar<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>Katia
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">4096</span><span class="w"> </span>sep<span class="w"> </span><span class="m">24</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>Pachuca
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">4096</span><span class="w"> </span>mar<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>Uruapan
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES<span class="o">[</span><span class="m">1006</span><span class="o">]</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Se crea una carpeta para almacenar el archivo <strong>template</strong>. Para ello, se utilizan los siguientes comandos: <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> para generar la carpeta con el nombre deseado y <code class="docutils literal notranslate"><span class="pre">cp</span></code> para copiar archivos dentro de ella. Como ejemplo, se empleará la carpeta denominada <strong>dan</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>nombre_carpeta
+cp<span class="w"> </span>nombre_carpeta
+ls<span class="w"> </span>-l
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1012</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>Se observa que no se tiene ningún archivo en nuestra carpeta, regresamos a la carpeta templates, usando el comando <code class="docutils literal notranslate"><span class="pre">cd</span></code>, y se busca dentro de las carpetas <code class="docutils literal notranslate"><span class="pre">ls</span></code>, un archivo con .template, en este ejemplo se usa la carpeta CDMX, copiamos el archivo <code class="docutils literal notranslate"><span class="pre">cp</span></code> y lo renombramos <code class="docutils literal notranslate"><span class="pre">mv</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>El comando <code class="docutils literal notranslate"><span class="pre">mv</span></code> sirve para mover carpetas o archivos.<br />
+Su segundo uso es para cambiar de nombre.</p>
+</div>
+<p>Para cambiar el nombre se usa la siguiente convención:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Nombre_de_la_ciudad+Sen+Orbita_Relativa(A/D)+T+número_de_órbita_relativa.template</p>
+</div>
+<p>Se regresa a la carpeta TEMPLATES, buscar el archivo .template dentro de CDMX</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1013</span><span class="o">]</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES<span class="o">[</span><span class="m">1014</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>CDMX
+total<span class="w"> </span><span class="m">100</span>
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">2128</span><span class="w"> </span>ene<span class="w"> </span><span class="m">11</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>CDMX_14_17_SenAT78.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1981</span><span class="w"> </span>oct<span class="w"> </span><span class="m">25</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>CDMX_14_17_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1944</span><span class="w"> </span>sep<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>CDMX_14_19_SenDT143_1.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1942</span><span class="w"> </span>abr<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMX_14_19_SenDT143_2.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1954</span><span class="w"> </span>sep<span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>CDMX_14_19_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">2128</span><span class="w"> </span>oct<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMX_14_20oct_SenAT78.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">2130</span><span class="w"> </span>oct<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMX_14_20oct_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1929</span><span class="w"> </span>ago<span class="w"> </span><span class="m">11</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMX_14_20_SenAT78_2.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1929</span><span class="w"> </span>oct<span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMX_14_20_SenAT78_3.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1929</span><span class="w"> </span>jul<span class="w"> </span><span class="m">15</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMX_14_20_SenAT78.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1930</span><span class="w"> </span>jul<span class="w"> </span><span class="m">17</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMX_14_20_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1929</span><span class="w"> </span>oct<span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMX_14_20_testSenAT78_3.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1979</span><span class="w"> </span>jun<span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>CDMX_14_21_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">2065</span><span class="w"> </span>jun<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>CDMX_14_22_SenAT78.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1980</span><span class="w"> </span>ago<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">07</span>:58<span class="w"> </span>CDMX_14_22_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1980</span><span class="w"> </span>mar<span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>CDMX_17_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1980</span><span class="w"> </span>feb<span class="w"> </span><span class="m">28</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>CDMX_1_month_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1979</span><span class="w"> </span>dic<span class="w"> </span><span class="m">15</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>CDMX_SenDT143_14_21.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1979</span><span class="w"> </span>dic<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>CDMX_SenDT143_all_2021.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1948</span><span class="w"> </span>abr<span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMXSenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1954</span><span class="w"> </span>sep<span class="w"> </span><span class="m">10</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>CDMXSenDT143_V2.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1947</span><span class="w"> </span>abr<span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>CDMXSenDT41.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1980</span><span class="w"> </span>feb<span class="w">  </span><span class="m">9</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>CDMX_test_SenDT143.template
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">7920</span><span class="w"> </span>ago<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">11</span>:22<span class="w"> </span>example.log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">    </span><span class="m">0</span><span class="w"> </span>oct<span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>isce.log
+</pre></div>
+</div>
+<p>Se copia del archivo a la carpeta creada cambiando el nombre, se puede ahorrar el paso de renombrar desde el comando <code class="docutils literal notranslate"><span class="pre">cp</span></code>, colocando el nombre en el directorio destino.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES<span class="o">[</span><span class="m">1015</span><span class="o">]</span><span class="w"> </span>cp<span class="w"> </span>CDMX/CDMXSenDT41.template<span class="w"> </span>dan/
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES<span class="o">[</span><span class="m">1016</span><span class="o">]</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>dan/
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1017</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">1</span>
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1947</span><span class="w"> </span>sep<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">19</span>:08<span class="w"> </span>CDMXSenDT41.template
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1018</span><span class="o">]</span><span class="w"> </span>mv<span class="w"> </span>CDMXSenDT41.template<span class="w"> </span>TorreonSenDT12_2015.template
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1019</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">1</span>
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1947</span><span class="w"> </span>sep<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">19</span>:08<span class="w"> </span>TorreonSenDT12_2015.template
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1020</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Dentro de la carpeta se abre el archivo .template, se puede usar el editor de texto vim o el nano.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1020</span><span class="o">]</span><span class="w"> </span>nano<span class="w"> </span>TorreonSenDT12_2015.template
+</pre></div>
+</div>
+<p>Se muestra el siguiente archivo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">######################################################</span>
+<span class="nv">cleanopt</span><span class="w">                            </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w">          </span><span class="c1"># [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep MINTPY 4: everything</span>
+ssaraopt.platform<span class="w">                   </span><span class="o">=</span><span class="w"> </span>SENTINEL-1A,SENTINEL-1B
+ssaraopt.relativeOrbit<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">41</span>
+ssaraopt.startDate<span class="w">                  </span><span class="o">=</span><span class="w"> </span><span class="m">20141001</span>
+<span class="c1">#ssaraopt.endDate                    = 20160831</span>
+ssaraopt.endDate<span class="w">                    </span><span class="o">=</span><span class="w"> </span><span class="m">20171031</span>
+ssaraopt.parallel<span class="w">                   </span><span class="o">=</span><span class="w"> </span><span class="m">20</span>
+<span class="nv">processor</span><span class="w">                           </span><span class="o">=</span><span class="w"> </span>isce
+<span class="nv">demMethod</span><span class="w">                           </span><span class="o">=</span><span class="w"> </span>boundingBox
+<span class="nv">hazard_products_flag</span><span class="w">                </span><span class="o">=</span><span class="w"> </span>False
+<span class="nv">insarmaps_flag</span><span class="w">                       </span><span class="o">=</span><span class="w"> </span>False
+
+<span class="c1">#topsStack.demDir                   = /nethome/famelung/insarlab/DEMDIR/Sentinel/GalapagosSenDT128/DEM</span>
+<span class="c1">#topsStack.boundingBox               = &#39;-1 -0.6 -91.7 -90.9&#39; # &#39;-1 0.15 -91.6 -90.9&#39;</span>
+topsStack.boundingBox<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;19.13 19.52 -99.46 -98.9&#39;</span><span class="w"> </span><span class="c1"># &#39;-1 0.15 -91.6 -90.9&#39;</span>
+topsStack.subswath<span class="w">                  </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w">    </span><span class="c1"># &#39;1 2&#39;</span>
+topsStack.numConnections<span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="w">    </span><span class="c1"># comment</span>
+topsStack.azimuthLooks<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">34</span><span class="w">    </span><span class="c1"># comment</span>
+topsStack.rangeLooks<span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="m">102</span><span class="w">   </span><span class="c1"># comment</span>
+topsStack.filtStrength<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.2<span class="w">  </span><span class="c1"># comment</span>
+topsStack.unwMethod<span class="w">                 </span><span class="o">=</span><span class="w"> </span>snaphu<span class="w">  </span><span class="c1"># comment</span>
+topsStack.coregistration<span class="w">            </span><span class="o">=</span><span class="w"> </span>auto<span class="w">  </span><span class="c1"># [NESD geometry], auto for NESD</span>
+
+<span class="c1">#mintpy.reference.lalo               = 20.108384, -98.859349     # N of SN</span>
+mintpy.troposphericDelay.method<span class="w">     </span><span class="o">=</span><span class="w"> </span>height_correlation<span class="w">    </span><span class="c1">#[pyaps / height_correlation / base_trop_cor / no], auto for pyaps</span>
+mintpy.save.hdfEos5<span class="w">                 </span><span class="o">=</span><span class="w"> </span>yes<span class="w">   </span><span class="c1">#[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format</span>
+mintpy.save.hdfEos5.update<span class="w">          </span><span class="o">=</span><span class="w"> </span>yes<span class="w">   </span><span class="c1">#[yes / no], auto for no, put XXXXXXXX as endDate in output filename</span>
+mintpy.save.kml<span class="w">                     </span><span class="o">=</span><span class="w"> </span>yes<span class="w">    </span><span class="c1">#[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file</span>
+
+<span class="c1">######################################################</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Los datos necesarios para modificar el archivo template, se describen en la sección 3.1.1 de la tesis <strong>CARACTERIZACIÓN DE SUBSIDENCIA Y EXPOSICIÓN DE LA POBLACIÓN VULNERABLE EN LA ZONA METROPOLITANA DE LA LAGUNA</strong></p>
+</div>
+<p>En el archivo anterior, se modifican datos importantes, como son la fecha de inicio y final de la serie de tiempo, donde buscara las imágenes de ese periodo de tiempo, y la órbita relativa de la imagen.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssaraopt.relativeOrbit<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">12</span>
+ssaraopt.startDate<span class="w">                  </span><span class="o">=</span><span class="w"> </span><span class="m">20150101</span>
+<span class="c1">#ssaraopt.endDate                    = 20160831</span>
+ssaraopt.endDate<span class="w">                    </span><span class="o">=</span><span class="w"> </span><span class="m">20151231</span>
+</pre></div>
+</div>
+<p>Las coordenadas norte, sur, este y oeste, donde se buscaran las imágenes, recuerda solo poner un decimal, y las coordenadas tienen que estar en latitud y longitud, estos datos los obtuvimos de la sección anterior..</p>
+<p>También se pueden seleccionar los subswath que se procesan , para este caso se trabajara la escena completa.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>topsStack.boundingBox<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span><span class="w"> </span><span class="c1"># &#39;-1 0.15 -91.6 -90.9&#39;</span>
+topsStack.subswath<span class="w">                  </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w">    </span><span class="c1"># &#39;1 2&#39;</span>
+</pre></div>
+</div>
+<p>Se guardan los cambios y se tiene preparado el archivo con la configuración requerida para iniciar el proceso.</p>
+</section>
+<section id="generacion-de-carpetas">
+<h2>2. Generación de carpetas<a class="headerlink" href="#generacion-de-carpetas" title="Link to this heading">#</a></h2>
+<p>Para iniciar con el proceso, se tiene que ejecutar la siguiente instrucción, se debe de realizar desde la carpeta de temporales, este proceso generara el directorio y descargara el DEM del la zona que ingresamos.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>process_rsmas.py<span class="w"> </span>ruta_carpeta/nombre_archivo.template<span class="w"> </span>--submit
+</pre></div>
+</div>
+</div>
+<p>Ejemplo real del comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>process_rsmas.py<span class="w"> </span>/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template<span class="w"> </span>--submit<span class="w"> </span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>Open<span class="w"> </span>Source<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>ISCE.
+Some<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>workflows<span class="w"> </span>depend<span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>separate<span class="w"> </span>licensed<span class="w"> </span>package.
+To<span class="w"> </span>obtain<span class="w"> </span>the<span class="w"> </span>licensed<span class="w"> </span>package,<span class="w"> </span>please<span class="w"> </span>make<span class="w"> </span>a<span class="w"> </span>request<span class="w"> </span><span class="k">for</span><span class="w"> </span>ISCE
+through<span class="w"> </span>the<span class="w"> </span>website:<span class="w"> </span>https://download.jpl.nasa.gov/ops/request/index.cfm.
+Alternatively,<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>a<span class="w"> </span>member,<span class="w"> </span>or<span class="w"> </span>can<span class="w"> </span>become<span class="w"> </span>a<span class="w"> </span>member<span class="w"> </span>of<span class="w"> </span>WinSAR
+you<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>able<span class="w"> </span>to<span class="w"> </span>obtain<span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>licensed<span class="w"> </span>sofware<span class="w"> </span>at
+https://winsar.unavco.org/software/isce
+Run<span class="w"> </span>routine<span class="w"> </span>processing<span class="w"> </span>with<span class="w"> </span>process_steps.py<span class="w"> </span>on<span class="w"> </span>steps:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;download&#39;</span>,<span class="w"> </span><span class="s1">&#39;process&#39;</span><span class="o">]</span>
+--------------------------------------------------
+
+***************<span class="w"> </span>Template<span class="w"> </span>Options<span class="w"> </span>****************
+Custom<span class="w"> </span>Template<span class="w"> </span>File:<span class="w">  </span>/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template
+Project<span class="w"> </span>Name:<span class="w">  </span>TorreonSenDT12_2014_2023
+Work<span class="w"> </span>Dir:<span class="w">  </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>--&gt;<span class="s1">&#39;1 2 3&#39;</span>
+<span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span>--&gt;<span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span>
+auto--&gt;auto
+None--&gt;None
+generate<span class="w"> </span>template<span class="w"> </span>file:<span class="w"> </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/TorreonSenDT12_2014_2023.template
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>--&gt;<span class="s1">&#39;1 2 3&#39;</span>
+<span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span>--&gt;<span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span>
+<span class="m">20230906</span>:200358<span class="w"> </span>*<span class="w"> </span><span class="c1">##### NEW RUN #####</span>
+<span class="m">20230906</span>:200358<span class="w"> </span>*<span class="w"> </span>process_rsmas.py<span class="w"> </span>/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template<span class="w"> </span>--submit
+process_rsmas.job<span class="w"> </span>submitted<span class="w"> </span>as<span class="w"> </span>LSF<span class="w"> </span>job<span class="w"> </span><span class="c1">#164951</span>
+<span class="m">164951</span>
+
+Total<span class="w"> </span>time:<span class="w"> </span><span class="m">00</span><span class="w"> </span>mins<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span>secs
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1045</span><span class="o">]</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Es necesario monitorear la descarga del <strong>DEM</strong>. Para ello, se utiliza el comando <code class="docutils literal notranslate"><span class="pre">bjobs</span></code>, que permite visualizar los procesos en ejecución. Una vez completada la descarga, se debe acceder a la carpeta <strong>SCRATCHDIR</strong>, donde se verificará la creación de una carpeta con el nombre del <strong>template</strong>, la cual debe contener el <strong>DEM</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan<span class="o">[</span><span class="m">1045</span><span class="o">]</span><span class="w"> </span>bjobs
+JOBID<span class="w">   </span>USER<span class="w">    </span>STAT<span class="w">  </span>QUEUE<span class="w">      </span>FROM_HOST<span class="w">   </span>EXEC_HOST<span class="w">   </span>JOB_NAME<span class="w">   </span>SUBMIT_TIME
+<span class="m">164952</span><span class="w">  </span>ecabral<span class="w"> </span>RUN<span class="w">   </span>q_hpc<span class="w">      </span>mn358<span class="w">       </span>g2_a<span class="w">        </span>*and_dem_0<span class="w"> </span>Sep<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">19</span>:04
+<span class="m">164951</span><span class="w">  </span>ecabral<span class="w"> </span>RUN<span class="w">   </span>q_hpc<span class="w">      </span>mn325<span class="w">       </span>g2_a<span class="w">        </span>*2014_2023<span class="w"> </span>Sep<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">19</span>:03
+</pre></div>
+</div>
+<p>Una vez finalizado el proceso, se debe acceder al directorio <strong>scratch</strong> utilizando la variable <code class="docutils literal notranslate"><span class="pre">$SCRATCHDIR</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCHDIR</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES<span class="o">[</span><span class="m">1010</span><span class="o">]</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCHDIR</span>
+</pre></div>
+</div>
+<p>Se despliega el contenido de la carpeta y se verifica la creación de un directorio con el nombre del <strong>template</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch<span class="o">[</span><span class="m">1011</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">308</span>
+drwxrwxr-x<span class="w">  </span><span class="m">5</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>CDMX_14_22_SenAT78_mintpy
+drwxrwxr-x<span class="w">  </span><span class="m">5</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>CDMX_14_22_SenDT143_mintpy
+drwxrwxr-x<span class="w">  </span><span class="m">4</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">26</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>CDMX_mintpy
+drwxrwxr-x<span class="w">  </span><span class="m">6</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>May<span class="w"> </span><span class="m">19</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>Ceboruco
+drwxrwxr-x<span class="w">  </span><span class="m">4</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">17</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>Enjambres_2021
+drwxrwxr-x<span class="w">  </span><span class="m">5</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">13</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>IrapuatoSenDT114
+drwxrwxr-x<span class="w">  </span><span class="m">8</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">10</span>:03<span class="w"> </span>JaliscoSenDT12_2014_2022_v4
+drwxrwxr-x<span class="w">  </span><span class="m">5</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">12</span>:29<span class="w"> </span>MexicoCentroSenDT41_2018_2021
+drwxrwxr-x<span class="w">  </span><span class="m">7</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">15</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>mintpy_Uruapan
+drwxrwxr-x<span class="w">  </span><span class="m">6</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>Process_Chichon_asc
+drwxrwxr-x<span class="w"> </span><span class="m">16</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">13</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>Process_Chichon_desc
+-rw-rw-r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">    </span><span class="m">460</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">18</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>run_example_2014_2018
+-rw-rw-r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">     </span><span class="m">26</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">17</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>run_example_2018_2019
+-rw-rw-r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">42738</span><span class="w"> </span>Oct<span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>sal_rsync
+drwxrwxr-x<span class="w">  </span><span class="m">4</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>SanRafael7SenAT149_J21_F23
+drwxrwxr-x<span class="w">  </span><span class="m">5</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">16</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>SanRafael7SenDT127_J21_F23
+drwxrwxr-x<span class="w">  </span><span class="m">5</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">20</span>:57<span class="w"> </span>TorreonSenDT12_2014_2023
+</pre></div>
+</div>
+<p>Se genera la carpeta correspondiente, que en este caso de ejemplo es <strong>TorreonSenDT12_2014_2023</strong>. A continuación, se accede a dicha carpeta para revisar su contenido.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch<span class="o">[</span><span class="m">1023</span><span class="o">]</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>TorreonSenDT12_2014_2023/
+//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023<span class="o">[</span><span class="m">1024</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">36</span>
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>DEM
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">99</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:23<span class="w"> </span>example.log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">98</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:23<span class="w"> </span>isce.log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">1428</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:23<span class="w"> </span>log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">  </span><span class="m">478</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:23<span class="w"> </span>process_rsmas.job
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:27<span class="w"> </span>run_files
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">95</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:23<span class="w"> </span>run_files_list
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>SLC
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">2102</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:23<span class="w"> </span>TorreonSenDT12_2014_2023.template
+</pre></div>
+</div>
+<p>Se identifican las carpetas generadas en este primer proceso. Es fundamental verificar la creación de la carpeta <strong>DEM</strong>, donde se revisará su contenido. En su interior, se encuentran seis archivos que conforman el <strong>DEM</strong>, junto con otros dos archivos adicionales.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023<span class="o">[</span><span class="m">1025</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>DEM/
+total<span class="w"> </span><span class="m">607536</span>
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">311040000</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>demLat_N24_N27_Lon_W105_W101.dem
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">       </span><span class="m">530</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>demLat_N24_N27_Lon_W105_W101.dem.vrt
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">311040000</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>demLat_N24_N27_Lon_W105_W101.dem.wgs84
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">       </span><span class="m">536</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>demLat_N24_N27_Lon_W105_W101.dem.wgs84.vrt
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">      </span><span class="m">4224</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>demLat_N24_N27_Lon_W105_W101.dem.wgs84.xml
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">      </span><span class="m">4292</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>demLat_N24_N27_Lon_W105_W101.dem.xml
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">         </span><span class="m">0</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:24<span class="w"> </span>insar.log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">         </span><span class="m">0</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:23<span class="w"> </span>isce.log
+</pre></div>
+</div>
+</section>
+<section id="descarga-de-imagenes-sar">
+<h2>3. Descarga de imagenes SAR<a class="headerlink" href="#descarga-de-imagenes-sar" title="Link to this heading">#</a></h2>
+<p>Para descargar las imágenes que se usaran en la serie de tiempo, nos movemos en la carpeta SLC, de nuestro directorio generado, observamos el contenido, y revisamos el archivo <code class="docutils literal notranslate"><span class="pre">ssara_listing.txt</span></code> en donde nos mostrara las imagenes encontradas en el area configurada.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch<span class="o">[</span><span class="m">1034</span><span class="o">]</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>TorreonSenDT12_2014_2023/SLC/
+//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1035</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">740</span>
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">1333</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:54<span class="w"> </span>example.log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">    </span><span class="m">818</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:52<span class="w"> </span>log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">2580</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:54<span class="w"> </span>out_download_ssara1.e
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">3214</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:54<span class="w"> </span>out_download_ssara1.o
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">144231</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:52<span class="w"> </span>ssara_listing.txt
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">591389</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:52<span class="w"> </span>ssara_search_20230907195223.kml
+</pre></div>
+</div>
+<blockquote>
+<div><p>[!TIP]</p>
+<p>Para observar el contenido de archivo <code class="docutils literal notranslate"><span class="pre">ssara_listing.txt</span></code> usaremos el comando <code class="docutils literal notranslate"><span class="pre">cat</span></code> o <code class="docutils literal notranslate"><span class="pre">more</span></code>.​</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1036</span><span class="o">]</span><span class="w"> </span>cat<span class="w"> </span>ssara_listing.txt
+Running<span class="w"> </span>SSARA<span class="w"> </span>API<span class="w"> </span>Query:<span class="w">  </span>https://web-services.unavco.org/brokered/ssara/api/sar/search?platform<span class="o">=</span>SENTINEL-1A%2CSENTINEL-1B<span class="p">&amp;</span><span class="nv">relativeOrbit</span><span class="o">=</span><span class="m">12</span><span class="p">&amp;</span><span class="nv">start</span><span class="o">=</span>%3D2014-01-01<span class="p">&amp;</span><span class="nv">end</span><span class="o">=</span>%3D2023-08-31<span class="p">&amp;</span><span class="nv">processingLevel</span><span class="o">=</span>L0%2CL1.0%2CSLC<span class="p">&amp;</span><span class="nv">intersectsWith</span><span class="o">=</span>Polygon%28%28-104.80+24.30%2C+-104.80+26.50%2C+-101.80+26.50%2C+-101.80+24.30%2C+-104.80+24.30%29%29
+SSARA<span class="w"> </span>API<span class="w"> </span>query:<span class="w"> </span><span class="m">22</span>.375481<span class="w"> </span>seconds
+Found<span class="w"> </span><span class="m">633</span><span class="w"> </span>scenes
+wget<span class="w"> </span>-O<span class="w"> </span>dem.tif<span class="w"> </span><span class="s2">&quot;http://ot-data1.sdsc.edu:9090/otr/getdem?north=28.619530&amp;south=22.061039&amp;east=-101.114549&amp;west=-105.080069&amp;demtype=SRTMGL1_E&quot;</span>
+gdal_translate<span class="w"> </span>-of<span class="w"> </span>GMT<span class="w"> </span>-ot<span class="w"> </span>Int16<span class="w"> </span>-projwin<span class="w"> </span>-105.080069<span class="w"> </span><span class="m">28</span>.619530<span class="w"> </span>-101.114549<span class="w"> </span><span class="m">22</span>.061039<span class="w"> </span>/vsicurl/https://cloud.sdsc.edu/v1/AUTH_opentopography/Raster/SRTM_GL1_Ellip/SRTM_GL1_Ellip_srtm.vrt<span class="w"> </span>dem.grd
+ASF,Sentinel-1A,3409,2014-11-23T12:48:41.000000,2014-11-23T12:49:11.000000,12,3091,3091,IW,None,DESCENDING,R,VV,https://datapool.asf.alaska.edu/SLC/SA/S1A_IW_SLC__1SSV_20141123T124841_20141123T124911_003409_003FA0_DE44.zip
+ASF,Sentinel-1A,3759,2014-12-17T12:48:41.000000,2014-12-17T12:49:10.000000,12,3091,3091,IW,None,DESCENDING,R,VV,https://datapool.asf.alaska.edu/SLC/SA/S1A_IW_SLC__1SSV_20141217T124841_20141217T124910_003759_0047B8_D60E.zip
+
+...
+</pre></div>
+</div>
+<p>🐾  Del archivo <strong>ssara_listing.txt</strong>, solo es relevante el encabezado, ya que muestra la cantidad de imágenes encontradas, seguido de un listado con cada una de ellas. En este caso, el encabezado indica la presencia de <strong>633</strong> escenas.</p>
+<p>A continuación, se accede al archivo <strong>log</strong> utilizando el comando <code class="docutils literal notranslate"><span class="pre">cat</span></code>, al igual que con el archivo anterior. En este caso, se debe revisar la última línea, que contiene la instrucción para ejecutar la descarga.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1037</span><span class="o">]</span><span class="w"> </span>cat<span class="w"> </span>log
+<span class="m">20230907</span>:135127<span class="w"> </span>*<span class="w"> </span>ssara_federated_query.py<span class="w"> </span>--platform<span class="o">=</span>SENTINEL-1A,SENTINEL-1B<span class="w"> </span>--relativeOrbit<span class="o">=</span><span class="m">12</span><span class="w"> </span>--intersectsWith<span class="o">=</span><span class="s1">&#39;Polygon((-104.80 24.30, -104.80 26.50, -101.80 26.50, -101.80 24.30, -104.80 24.30))&#39;</span><span class="w"> </span>-s<span class="o">=</span><span class="m">2014</span>-01-01<span class="w"> </span>-e<span class="o">=</span><span class="m">2023</span>-08-31<span class="w"> </span>--kml
+<span class="m">20230907</span>:135223<span class="w"> </span>*<span class="w"> </span>ssara_federated_query.py<span class="w"> </span>--platform<span class="o">=</span>SENTINEL-1A,SENTINEL-1B<span class="w"> </span>--relativeOrbit<span class="o">=</span><span class="m">12</span><span class="w"> </span>--intersectsWith<span class="o">=</span><span class="s1">&#39;Polygon((-104.80 24.30, -104.80 26.50, -101.80 26.50, -101.80 24.30, -104.80 24.30))&#39;</span><span class="w"> </span>-s<span class="o">=</span><span class="m">2014</span>-01-01<span class="w"> </span>-e<span class="o">=</span><span class="m">2023</span>-08-31<span class="w"> </span>--print<span class="w"> </span>&gt;<span class="w"> </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC/ssara_listing.txt
+<span class="m">20230907</span>:135245<span class="w"> </span>*<span class="w"> </span>ssara_federated_query-cj.py<span class="w"> </span>--platform<span class="o">=</span>SENTINEL-1A,SENTINEL-1B<span class="w"> </span>--relativeOrbit<span class="o">=</span><span class="m">12</span><span class="w"> </span>--intersectsWith<span class="o">=</span><span class="s1">&#39;Polygon((-104.80 24.30, -104.80 26.50, -101.80 26.50, -101.80 24.30, -104.80 24.30))&#39;</span><span class="w"> </span>-s<span class="o">=</span><span class="m">2014</span>-01-01<span class="w"> </span>-e<span class="o">=</span><span class="m">2023</span>-08-31<span class="w"> </span>--parallel<span class="o">=</span><span class="m">20</span><span class="w"> </span>--print<span class="w"> </span>--download
+</pre></div>
+</div>
+<blockquote>
+<div><p>[!IMPORTANT]</p>
+<p>Ser cuidadoso con la generación del archivo.</p>
+</div></blockquote>
+<p>Se crea un archivo denominado <strong>run</strong> utilizando editores como <strong>nano</strong> o <strong>vim</strong>. En su interior, se debe agregar la última línea del archivo <strong>log</strong>, la cual comienza con <code class="docutils literal notranslate"><span class="pre">ssara_federated_query-cj.py</span></code>. Es importante modificar el nombre del archivo eliminando <code class="docutils literal notranslate"><span class="pre">-cj</span></code>, de modo que quede como <code class="docutils literal notranslate"><span class="pre">ssara_federated_query.py</span></code>, asegurando que la instrucción se mantenga en una sola línea continua.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Generación del archivo</span>
+
+//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1040</span><span class="o">]</span><span class="w"> </span>nano<span class="w"> </span>run
+</pre></div>
+</div>
+<p>Se abre el editor, se pega la linea.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssara_federated_query-cj.py<span class="w"> </span>--platform<span class="o">=</span>SENTINEL-1A,SENTINEL-1B<span class="w"> </span>--relativeOrbit<span class="o">=</span><span class="m">12</span><span class="w"> </span>--intersectsWith<span class="o">=</span><span class="s1">&#39;Polygon((-104.80 24.30, -104.80 26.50, -101.80 26.50, -101.80 24.30, -104.80 24.30))&#39;</span><span class="w"> </span>-s<span class="o">=</span><span class="m">2014</span>-01-01<span class="w"> </span>-e<span class="o">=</span><span class="m">2023</span>-08-31<span class="w"> </span>--parallel<span class="o">=</span><span class="m">20</span><span class="w"> </span>--print<span class="w"> </span>--download
+</pre></div>
+</div>
+<p>Se modifica para que quede sin el <code class="docutils literal notranslate"><span class="pre">-cj</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssara_federated_query.py<span class="w"> </span>--platform<span class="o">=</span>SENTINEL-1A,SENTINEL-1B<span class="w"> </span>--relativeOrbit<span class="o">=</span><span class="m">12</span><span class="w"> </span>--intersectsWith<span class="o">=</span><span class="s1">&#39;Polygon((-104.80 24.30, -104.80 26.50, -101.80 26.50, -101.80 24.30, -104.80 24.30))&#39;</span><span class="w"> </span>-s<span class="o">=</span><span class="m">2014</span>-01-01<span class="w"> </span>-e<span class="o">=</span><span class="m">2023</span>-08-31<span class="w"> </span>--parallel<span class="o">=</span><span class="m">20</span><span class="w"> </span>--print<span class="w"> </span>--download
+</pre></div>
+</div>
+<p>Se guarda con <code class="docutils literal notranslate"><span class="pre">ctrl^O</span></code>, se escribe el nombre que es <code class="docutils literal notranslate"><span class="pre">run</span></code> y salimos de nano con <code class="docutils literal notranslate"><span class="pre">ctrl^X</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Se muestra la generacion de archivo y su contenido</span>
+
+//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1041</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">741</span>
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">1333</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:54<span class="w"> </span>example.log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">    </span><span class="m">818</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:52<span class="w"> </span>log
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">2580</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:54<span class="w"> </span>out_download_ssara1.e
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">   </span><span class="m">3214</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:54<span class="w"> </span>out_download_ssara1.o
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w">    </span><span class="m">211</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">16</span>:37<span class="w"> </span>run
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">144231</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:52<span class="w"> </span>ssara_listing.txt
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>ecabral<span class="w"> </span>ecabral_g<span class="w"> </span><span class="m">591389</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:52<span class="w"> </span>ssara_search_20230907195223.kml
+//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1057</span><span class="o">]</span><span class="w"> </span>cat<span class="w"> </span>run
+ssara_federated_query.py<span class="w"> </span>--platform<span class="o">=</span>SENTINEL-1A,SENTINEL-1B<span class="w"> </span>--relativeOrbit<span class="o">=</span><span class="m">12</span><span class="w"> </span>--intersectsWith<span class="o">=</span><span class="s1">&#39;Polygon((-104.80 24.30, -104.80 26.50, -101.80 26.50, -101.80 24.30, -104.80 24.30))&#39;</span><span class="w"> </span>-s<span class="o">=</span><span class="m">2014</span>-01-01<span class="w"> </span>-e<span class="o">=</span><span class="m">2023</span>-08-31<span class="w"> </span>--parallel<span class="o">=</span><span class="m">20</span><span class="w"> </span>--print<span class="w"> </span>--download
+</pre></div>
+</div>
+<p>El paso siguiente es correr el archivo <strong>run</strong> para descargar las imágenes encontradas, para esto se usa la instrucción <code class="docutils literal notranslate"> <span class="pre">split_job.py</span></code> seguido del nombre de nuestro archivo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>split_jobs.py<span class="w"> </span>run
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1043</span><span class="o">]</span><span class="w"> </span>split_jobs.py<span class="w"> </span>run
+</pre></div>
+</div>
+<p>Se despliega como resultado</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Go<span class="w"> </span>to<span class="w"> </span>job<span class="w"> </span>directory<span class="w"> </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC
+input<span class="w"> </span>run<span class="w"> </span>file:<span class="w"> </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC/run
+number<span class="w"> </span>of<span class="w"> </span>lines:<span class="w"> </span><span class="m">1</span>
+split<span class="w"> </span>-a<span class="w"> </span><span class="m">1</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC/run<span class="w"> </span>z_input_run.
+number<span class="w"> </span>of<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>to<span class="w"> </span>submit:<span class="w"> </span><span class="m">1</span>
+job<span class="w"> </span>queue:<span class="w"> </span>q_hpc
+walltime:<span class="w"> </span><span class="m">3</span>:00
+memory:<span class="w"> </span><span class="m">3700</span>
+number<span class="w"> </span>of<span class="w"> </span>processors:<span class="w"> </span><span class="m">1</span>
+email:<span class="w"> </span>None
+bsub<span class="w"> </span>&lt;<span class="w"> </span>z_input_run.0.sh
+Job<span class="w"> </span>&lt;<span class="m">166706</span>&gt;<span class="w"> </span>is<span class="w"> </span>submitted<span class="w"> </span>to<span class="w"> </span>queue<span class="w"> </span>&lt;q_hpc&gt;.
+--------------------------------------------------
+sleeping<span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>are<span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>run
+<span class="c1"># of TorreonSenDT12_2014_2023/z_output_run.*.o files: 0 / 1 after 0 mins</span>
+<span class="c1"># of TorreonSenDT12_2014_2023/z_output_run.*.o files: 0 / 1 after 1 mins</span>
+--------------------------------------------------
+ALL<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>are<span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>run
+Total<span class="w"> </span>used<span class="w"> </span>time:<span class="w"> </span><span class="m">00</span><span class="w"> </span>hours<span class="w"> </span><span class="m">01</span><span class="w"> </span>mins<span class="w"> </span><span class="m">36</span><span class="w"> </span>secs
+moving<span class="w"> </span>z_*<span class="w"> </span>files<span class="w"> </span>into<span class="w"> </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC/run_jobs
+finished<span class="w"> </span>at<span class="w"> </span><span class="m">2023</span>-09-07<span class="w"> </span><span class="m">16</span>:52:00.324981
+</pre></div>
+</div>
+<p>Una vez finalizado el proceso, es necesario verificar que todas las escenas se hayan descargado correctamente. Para ello, se utiliza la siguiente instrucción, que combina dos comandos de <strong>bash</strong>. Primero, <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">*.zip</span></code> lista todos los archivos con la extensión <code class="docutils literal notranslate"><span class="pre">.zip</span></code>. Luego, el conector <code class="docutils literal notranslate"><span class="pre">|</span></code> envía este resultado al comando <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span></code>, el cual cuenta la cantidad de archivos encontrados. Específicamente, este último comando contabiliza el número de líneas generadas por el listado de archivos <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, proporcionando así un recuento preciso de los archivos descargados.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-l<span class="w"> </span>*.zip<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</pre></div>
+</div>
+<blockquote>
+<div><p>[!NOTE]</p>
+<p>Es importante asegurarse de estar dentro de la carpeta correspondiente al proceso, específicamente en el directorio <strong>SLC</strong>, donde se almacenan las escenas, antes de ejecutar este comando.</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Comando para estar en el directorio SLC</span>
+//mn325/tmpu/ecabral_g/ecabral/scratch<span class="o">[</span><span class="m">1005</span><span class="o">]</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>TorreonSenDT12_2014_2023/SLC/
+<span class="c1">#Comando para contar las imagenes</span>
+//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1006</span><span class="o">]</span><span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>*.zip<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+<span class="m">459</span>
+</pre></div>
+</div>
+<p>🔁</p>
+<p>Se observa que no todas las escenas se han descargado completamente, por lo que es necesario ejecutar nuevamente el comando <code class="docutils literal notranslate"><span class="pre">split_jobs.py</span> <span class="pre">run</span></code>. Se debe monitorear el proceso hasta alcanzar las <strong>633</strong> escenas.</p>
+<p>Posteriormente, se realiza una nueva verificación. Si la cantidad de imágenes coincide con el número esperado, se procede al siguiente paso. En caso de que el total de imágenes descargadas sea correcto, se continúa con la <strong>Parte 4</strong>.</p>
+<hr class="docutils" />
+<section id="numero-de-imagenes-no-coincide">
+<h3>3.1 Número de imágenes no coincide<a class="headerlink" href="#numero-de-imagenes-no-coincide" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>[!WARNING]</p>
+<p>Se sugiere el siguiente procedimiento.</p>
+<p>Se observo que las imágenes descargadas que son 624 no coinciden con las imágenes encontradas en el <code class="docutils literal notranslate"><span class="pre">ssara_listing</span></code> que son 633, una de las razones es por que no se encuentran las imágenes, al momento de realizar el <code class="docutils literal notranslate"><span class="pre">split_jobs</span></code>, indica que ya termino la descargas, podemos pasar a procesar o realizar las siguientes instrucciones.</p>
+<p>🚨 💡 🚨<br />
+Debido a que no se encontraron todas la imágenes en el repositorio de <strong>ASF</strong>, el proceso no se completara, se espera a que finalice y se buscara que fechas se tiene que excluir.</p>
+<p>Una forma de saber cuales son las imágenes que no se encuentran es comparando la lista del archivo <code class="docutils literal notranslate"><span class="pre">ssara_listing.txt</span></code> con las imágenes descargadas, para eso podemos seguir las siguientes instrucciones <a class="reference internal" href="Comparacion/Busqueda.html"><span class="std std-doc">Busqueda de archivos</span></a></p>
+<p>Detectando las imágenes que no se descargaron, se tiene que proceder con copiar la carpeta <code class="docutils literal notranslate"><span class="pre">SLC</span></code> fuera de la carpeta del procesamiento, en este caso es <code class="docutils literal notranslate"> <span class="pre">TorreonSenDT12_2014_2023</span></code>. La forma de realizarlo es ingresando en la carpeta de Torreón y escribir el siguiente comando</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>SLC<span class="w"> </span>..<span class="w"> </span>
+</pre></div>
+</div>
+<div class="highlight-forma notranslate"><div class="highlight"><pre><span></span>mv ruta_origen/carpeta_o_archivo_mover ruta_destino/nombre_de_archivo_o_carpeta 
+</pre></div>
+</div>
+<p>El comando <code class="docutils literal notranslate"><span class="pre">mv</span></code> se utiliza para mover o renombrar, le sigue la ruta/archivo o carpeta a mover y después la ruta donde se moverá, se coloca <code class="docutils literal notranslate"><span class="pre">..</span></code> debido a que se movera una dirección superior a la de Torreon.</p>
+<p>Cuando se termine de mover la información, procedemos con la eliminación de la carpeta Torreon, usaremos el siguiente comando.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-r<span class="w"> </span>TorreonSenDT12_2014_2023
+</pre></div>
+</div>
+<p>Nos movemos a la carpeta de <code class="docutils literal notranslate"> <span class="pre">TEMPLATES</span></code> y editamos nuestro template, con las imágenes que encontramos corriendo el script de búsqueda, armamos una lista con las fechas donde solo se separan con comas, las fechas se colocan en</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fecha1,fecha2,fecha3<span class="w"> </span>
+</pre></div>
+</div>
+<p>Se tiene que ubicar dentro de la carpeta <code class="docutils literal notranslate"><span class="pre">TE/carpeta_proyecto</span></code>, en donde se buscara el template a modificar.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$TE</span>/dan
+nano<span class="w"> </span>TorreonSenDT12_2014_2023.template
+</pre></div>
+</div>
+<p>Se muestra el archivo editado</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">######################################################</span>
+<span class="nv">cleanopt</span><span class="w">                            </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w">          </span><span class="c1"># [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep MINTPY 4: everything</span>
+ssaraopt.platform<span class="w">                   </span><span class="o">=</span><span class="w"> </span>SENTINEL-1A,SENTINEL-1B
+ssaraopt.relativeOrbit<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">12</span>
+ssaraopt.startDate<span class="w">                  </span><span class="o">=</span><span class="w"> </span><span class="m">20140101</span>
+<span class="c1">#ssaraopt.endDate                    = 20160831</span>
+ssaraopt.endDate<span class="w">		    </span><span class="o">=</span><span class="w"> </span><span class="m">20230831</span>
+ssaraopt.parallel<span class="w">                   </span><span class="o">=</span><span class="w"> </span><span class="m">20</span>
+<span class="nv">processor</span><span class="w">                           </span><span class="o">=</span><span class="w"> </span>isce
+<span class="nv">demMethod</span><span class="w">                           </span><span class="o">=</span><span class="w"> </span>boundingBox
+<span class="nv">hazard_products_flag</span><span class="w">                </span><span class="o">=</span><span class="w"> </span>False
+<span class="nv">insarmaps_flag</span><span class="w">                       </span><span class="o">=</span><span class="w"> </span>False
+
+<span class="c1">#topsStack.demDir                   = /nethome/famelung/insarlab/DEMDIR/Sentinel/GalapagosSenDT128/DEM</span>
+<span class="c1">#topsStack.boundingBox               = &#39;-1 -0.6 -91.7 -90.9&#39; # &#39;-1 0.15 -91.6 -90.9&#39;</span>
+topsStack.boundingBox<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span><span class="w"> </span><span class="c1"># &#39;-1 0.15 -91.6 -90.9&#39;</span>
+topsStack.subswath<span class="w">                  </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w">    </span><span class="c1"># &#39;1 2&#39;</span>
+topsStack.numConnections<span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="w">    </span><span class="c1"># comment</span>
+topsStack.azimuthLooks<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="w">    </span><span class="c1"># comment</span>
+topsStack.rangeLooks<span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="w">   </span><span class="c1"># comment</span>
+topsStack.filtStrength<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.2<span class="w">  </span><span class="c1"># comment</span>
+topsStack.unwMethod<span class="w">                 </span><span class="o">=</span><span class="w"> </span>snaphu<span class="w">  </span><span class="c1"># comment</span>
+topsStack.coregistration<span class="w">            </span><span class="o">=</span><span class="w"> </span>auto<span class="w">  </span><span class="c1"># [NESD geometry], auto for NESD</span>
+topsStack.excludeDates<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">20220602</span>,20150802,20150919,20151130,20160305,20160422,20160516,20160609,20160703<span class="w"> </span><span class="c1">#auto for all dates</span>
+
+<span class="c1">#mintpy.deramp		 	    = linear #[no / linear / quadratic], auto for no - no ramp will be removed</span>
+<span class="c1">#mintpy.reference.lalo               = 28.9,-113.5     # N of SN</span>
+mintpy.troposphericDelay.method<span class="w">     </span><span class="o">=</span><span class="w"> </span>height_correlation<span class="w">    </span><span class="c1">#[pyaps / height_correlation / base_trop_cor / no], auto for pyaps</span>
+mintpy.save.hdfEos5<span class="w">                 </span><span class="o">=</span><span class="w"> </span>yes<span class="w">   </span><span class="c1">#[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format</span>
+mintpy.save.hdfEos5.update<span class="w">          </span><span class="o">=</span><span class="w"> </span>yes<span class="w">   </span><span class="c1">#[yes / no], auto for no, put XXXXXXXX as endDate in output filename</span>
+mintpy.save.kml<span class="w">                     </span><span class="o">=</span><span class="w"> </span>yes<span class="w">    </span><span class="c1">#[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file</span>
+
+<span class="c1">######################################################</span>
+</pre></div>
+</div>
+<p>Fechas excluidas:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>topsStack.excludeDates<span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">20220602</span>,20150802,20150919<span class="w">  </span><span class="c1">#auto for all dates</span>
+</pre></div>
+</div>
+<p>Se guarda los cambios, procedemos a enviar el proyecto, para que se descargue el DEM y el listado.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>process_rsmas.py<span class="w"> </span>/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template<span class="w"> </span>--submit<span class="w"> </span>
+</pre></div>
+</div>
+<p>Se revisa que genere el directorio en <code class="docutils literal notranslate"><span class="pre">SCRATCHDIR</span></code> , que se encuentre la carpeta <code class="docutils literal notranslate"><span class="pre">DEM</span></code>, y el listado en la carpeta <code class="docutils literal notranslate"><span class="pre">SLC</span></code>, una vez generada la información de forma correcta, borramos la carpeta <code class="docutils literal notranslate"><span class="pre">SLC</span></code> y movemos la carpeta <code class="docutils literal notranslate"><span class="pre">SLC</span></code> con las imágenes dentro del directorio, ahora podemos enviar el proyecto.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCHDIR</span>/TorreonSenDT12_2014_2023
+ls<span class="w"> </span>-l<span class="w"> </span>DEM
+cat<span class="w"> </span>SLC/ssara_listing.txt
+rm<span class="w"> </span>-r<span class="w"> </span>SLC/
+<span class="nb">cd</span><span class="w"> </span>..
+mv<span class="w"> </span>SLC<span class="w"> </span>TorreonSenDT12_2014_2023/
+ls<span class="w"> </span>-l<span class="w"> </span>TorreonSenDT12_2014_2023
+</pre></div>
+</div>
+<p>Se comprueba que la información esté de forma correcta, con estos pasos adicionales descartamos las imágenes no encontradas.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="envio-para-procesar-las-imagenes-para-la-serie-de-tiempo">
+<h2>4. Envío para procesar las imágenes para la serie de tiempo.<a class="headerlink" href="#envio-para-procesar-las-imagenes-para-la-serie-de-tiempo" title="Link to this heading">#</a></h2>
+<p>Para realizar el procesamiento, se debe acceder a la carpeta de archivos temporales utilizando el comando <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$TEM</span></code> y ejecutar la siguiente instrucción:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>process_rsmas.py<span class="w"> </span>ruta_del_archivo<span class="w"> </span>temporal<span class="w"> </span>--start<span class="w"> </span>process<span class="w"> </span>--submit<span class="w"> </span>--walltime<span class="w"> </span><span class="m">120</span>:00
+</pre></div>
+</div>
+<p>Es posible agregar la opción <code class="docutils literal notranslate"><span class="pre">--walltime</span> <span class="pre">tiempo_horas</span></code>, que define la duración máxima del procesamiento. El límite permitido es de <strong>120 horas</strong> (equivalente a <strong>5 días</strong>).</p>
+<p>En este ejemplo, el comando se ejecuta de la siguiente manera:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>process_rsmas.py<span class="w"> </span>/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template<span class="w"> </span>--start<span class="w"> </span>process<span class="w"> </span>--submit<span class="w"> </span>--walltime<span class="w"> </span><span class="m">120</span>:00
+</pre></div>
+</div>
+<p>Proceso desde el cambio de directorio hasta el incio del proceso.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#cambio de directorio</span>
+//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC<span class="o">[</span><span class="m">1029</span><span class="o">]</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$TE</span>
+<span class="c1">#inicio del procesamiento</span>
+//mn325/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES<span class="o">[</span><span class="m">1030</span><span class="o">]</span><span class="w"> </span>process_rsmas.py<span class="w"> </span>/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template<span class="w"> </span>--start<span class="w"> </span>process<span class="w"> </span>--submit<span class="w"> </span>--walltime<span class="w"> </span><span class="m">120</span>:00
+<span class="c1">#muestra que se ha enviado</span>
+This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>Open<span class="w"> </span>Source<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>ISCE.
+Some<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>workflows<span class="w"> </span>depend<span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>separate<span class="w"> </span>licensed<span class="w"> </span>package.
+To<span class="w"> </span>obtain<span class="w"> </span>the<span class="w"> </span>licensed<span class="w"> </span>package,<span class="w"> </span>please<span class="w"> </span>make<span class="w"> </span>a<span class="w"> </span>request<span class="w"> </span><span class="k">for</span><span class="w"> </span>ISCE
+through<span class="w"> </span>the<span class="w"> </span>website:<span class="w"> </span>https://download.jpl.nasa.gov/ops/request/index.cfm.
+Alternatively,<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>a<span class="w"> </span>member,<span class="w"> </span>or<span class="w"> </span>can<span class="w"> </span>become<span class="w"> </span>a<span class="w"> </span>member<span class="w"> </span>of<span class="w"> </span>WinSAR
+you<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>able<span class="w"> </span>to<span class="w"> </span>obtain<span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>licensed<span class="w"> </span>sofware<span class="w"> </span>at
+https://winsar.unavco.org/software/isce
+Run<span class="w"> </span>routine<span class="w"> </span>processing<span class="w"> </span>with<span class="w"> </span>process_steps.py<span class="w"> </span>on<span class="w"> </span>steps:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;process&#39;</span><span class="o">]</span>
+Remaining<span class="w"> </span>steps:<span class="w"> </span><span class="o">[]</span>
+--------------------------------------------------
+
+***************<span class="w"> </span>Template<span class="w"> </span>Options<span class="w"> </span>****************
+Custom<span class="w"> </span>Template<span class="w"> </span>File:<span class="w">  </span>/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template
+Project<span class="w"> </span>Name:<span class="w">  </span>TorreonSenDT12_2014_2023
+Work<span class="w"> </span>Dir:<span class="w">  </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>--&gt;<span class="s1">&#39;1 2 3&#39;</span>
+<span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span>--&gt;<span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span>
+auto--&gt;auto
+None--&gt;None
+generate<span class="w"> </span>template<span class="w"> </span>file:<span class="w"> </span>/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/TorreonSenDT12_2014_2023.template
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>--&gt;<span class="s1">&#39;1 2 3&#39;</span>
+<span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span>--&gt;<span class="s1">&#39;24.3 26.5 -104.8 -101.8&#39;</span>
+<span class="m">20230912</span>:121006<span class="w"> </span>*<span class="w"> </span><span class="c1">##### NEW RUN #####</span>
+<span class="m">20230912</span>:121006<span class="w"> </span>*<span class="w"> </span>process_rsmas.py<span class="w"> </span>/tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template<span class="w"> </span>--start<span class="w"> </span>process<span class="w"> </span>--submit<span class="w"> </span>--walltime<span class="w"> </span><span class="m">120</span>:00
+process_rsmas.job<span class="w"> </span>submitted<span class="w"> </span>as<span class="w"> </span>LSF<span class="w"> </span>job<span class="w"> </span><span class="c1">#174111</span>
+<span class="m">174111</span>
+
+Total<span class="w"> </span>time:<span class="w"> </span><span class="m">00</span><span class="w"> </span>mins<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span>secs
+</pre></div>
+</div>
+<p>Ahora solo queda monitorear la serie con el comando <code class="docutils literal notranslate"><span class="pre">bjobs</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">mn325</span><span class="o">/</span><span class="n">tmpu</span><span class="o">/</span><span class="n">ecabral_g</span><span class="o">/</span><span class="n">ecabral</span><span class="o">/</span><span class="n">insarlab</span><span class="o">/</span><span class="n">infiles</span><span class="o">/</span><span class="n">ecabral</span><span class="o">/</span><span class="n">TEMPLATES</span><span class="p">[</span><span class="mi">1031</span><span class="p">]</span> <span class="n">bjobs</span>
+<span class="n">JOBID</span>   <span class="n">USER</span>    <span class="n">STAT</span>  <span class="n">QUEUE</span>      <span class="n">FROM_HOST</span>   <span class="n">EXEC_HOST</span>   <span class="n">JOB_NAME</span>   <span class="n">SUBMIT_TIME</span>
+<span class="mi">174111</span>  <span class="n">ecabral</span> <span class="n">RUN</span>   <span class="n">q_hpc</span>      <span class="n">mn325</span>       <span class="n">g3_a</span>        <span class="o">*</span><span class="mi">2014_2023</span> <span class="n">Sep</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">10</span>
+</pre></div>
+</div>
+<p>Si todo sale bien, en nuestro directorio se encontraran los resultados de la serie de tiempo.</p>
+<p>Uno de los errores que puede ocurrir, es que no se termine el proceso con Mintpy debido al tiempo, para poderlo solucionar realizamos las <a class="reference internal" href="mintpy.html"><span class="std std-doc">Tiempo de Mintpy</span></a></p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./01Series_Tiempo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Documentación del laboratorio del Servicio Geodésico</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Comparacion/Busqueda.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Comparación de imágenes descargadas vs ssara_listing.txt</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-datos">1. Preparación de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-carpetas">2. Generación de carpetas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descarga-de-imagenes-sar">3. Descarga de imagenes SAR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-imagenes-no-coincide">3.1 Número de imágenes no coincide</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#envio-para-procesar-las-imagenes-para-la-serie-de-tiempo">4. Envío para procesar las imágenes para la serie de tiempo.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Hernández Luna
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
