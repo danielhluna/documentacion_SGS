@@ -1,6 +1,6 @@
 # MintPy en Miztli
 
-El **run** 13 es el proceso que realiza `Mintpy`, en esta ocasión, por se una serie muy larga, nos quedamos sin tiempo en el proceso en la miztli. Como es el último proceso, se puede enviar por separado.
+El **run** 13 es el proceso que realiza `Mintpy`, en esta ocasión, por ser una serie muy larga, nos quedamos sin tiempo en el proceso en la miztli. Como es el último proceso, se puede enviar por separado.
 
 Para iniciar, tenemos que estar dentro de el directorio del proceso, en la carpeta de `scratch`, donde podemos ver todos los resultados del proceso.
 
@@ -14,7 +14,7 @@ Para modificar el tiempo del run 13 que pertenece a la parte del proceso con `Mi
 cd run_files
 ```
 
-Se observa los archivos que se encuentran en la carpeta.
+Se observan los archivos que se encuentran en la carpeta.
 
 ```bash
 ls -l
@@ -41,7 +41,7 @@ Muestra el siguiente resultado:
 #BSUB -R rusage[mem=3000]
 ```
 
-En donde podemos ver la bandera -W con 12:00 horas, este tiempo se tendrá que extender, por lo que se modificara con un vim o nano, ingresando 72:00 en vez de las 12 horas que tenia.
+En donde podemos ver la bandera -W con 12:00 horas, este tiempo se tendrá que extender, por lo que se modificará con un vim o nano, ingresando 72:00 en vez de las 12 horas que tenía.
 
 El archivo guardado tiene que quedar de la siguiente forma.
 
@@ -71,7 +71,7 @@ Envía el siguiente resultado:
 Job <193335> is submitted to queue <q_hpc>.
 ```
 
-Se revisa los trabajos enviados a la miztli se obtiene.
+Se revisan los trabajos enviados a la miztli se obtiene.
 
 ```bash
 //mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/run_files[13] bjobs

@@ -28,104 +28,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Renombrar el campo problemático
-
-names(capa_ageb)[names(capa_ageb) == "PCDISC_MOT2"] <- "PCDISC_M_1"
-
-st_write(capa_ageb, dir_save_shp)
+dir <- "./la_laguna/tabla"
+archivo <- "conjunto_de_datos_ageb_urbana_05_cpv2020.csv"
+dir_data <- file.path(dir, archivo)
 ------------------
 
------ stderr -----
-Warning message in abbreviate_shapefile_names(obj):
-“Field names abbreviated for ESRI Shapefile driver”
------ stdout -----
-Layer Vulnerabilidad_ll in dataset ./resultados/Vulnerabilidad_ll.shp already exists:
-use either append=TRUE to append to layer or append=FALSE to overwrite layer
-------------------
 
-Error: Dataset already exists.
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m [38;5;28mdir[39m [38;5;241m<[39m[38;5;241;43m-[39;49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43m./la_laguna/tabla[39;49m[38;5;124;43m"[39;49m
+[1;32m      2[0m archivo [38;5;241m<[39m[38;5;241m-[39m [38;5;124m"[39m[38;5;124mconjunto_de_datos_ageb_urbana_05_cpv2020.csv[39m[38;5;124m"[39m
+[1;32m      3[0m dir_data [38;5;241m<[39m[38;5;241m-[39m file[38;5;241m.[39mpath([38;5;28mdir[39m, archivo)
 
-Traceback:
-
-1. st_write.sf(capa_ageb, dir_save_shp)
-2. CPL_write_ogr(obj, dsn, layer, driver, as.character(dataset_options), 
- .     as.character(layer_options), geom, dim, fids, config_options, 
- .     quiet, append, delete_dsn, delete_layer, write_geometries, 
- .     getOption("width"))
-3. stop(structure(list(message = "Dataset already exists.\n", call = eval(expr, 
- .     envir), cppstack = structure(list(file = "", line = -1L, 
- .     stack = c("/home/dan/.conda/envs/rgeo/lib/R/library/sf/libs/sf.so(+0x60e82) [0x7fe6db29fe82]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/library/sf/libs/sf.so(+0x2b222) [0x7fe6db26a222]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/library/sf/libs/sf.so(+0x3262c) [0x7fe6db27162c]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/library/sf/libs/sf.so(_sf_CPL_write_ogr+0x2a0) [0x7fe6db298940]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x1061d0) [0x7fe7787061d0]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x14a523) [0x7fe77874a523]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15e99e) [0x7fe77875e99e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x7b) [0x7fe77875ec0b]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x160f27) [0x7fe778760f27]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x161ca7) [0x7fe778761ca7]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x1626d9) [0x7fe7787626d9]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x1a8936) [0x7fe7787a8936]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x1a9013) [0x7fe7787a9013]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x1a93b2) [0x7fe7787a93b2]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x148318) [0x7fe778748318]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15e99e) [0x7fe77875e99e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x7b) [0x7fe77875ec0b]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x160f27) [0x7fe778760f27]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x161ca7) [0x7fe778761ca7]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x29e) [0x7fe77875ee2e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x16544c) [0x7fe77876544c]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x1484e9) [0x7fe7787484e9]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15e99e) [0x7fe77875e99e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x7b) [0x7fe77875ec0b]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15f740) [0x7fe77875f740]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x371) [0x7fe77875ef01]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x165bbe) [0x7fe778765bbe]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x1a6278) [0x7fe7787a6278]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x148318) [0x7fe778748318]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15e99e) [0x7fe77875e99e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x7b) [0x7fe77875ec0b]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15f740) [0x7fe77875f740]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x371) [0x7fe77875ef01]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15f740) [0x7fe77875f740]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15f9c0) [0x7fe77875f9c0]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x14b291) [0x7fe77874b291]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15e99e) [0x7fe77875e99e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x7b) [0x7fe77875ec0b]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x160f27) [0x7fe778760f27]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x161ca7) [0x7fe778761ca7]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x29e) [0x7fe77875ee2e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x16544c) [0x7fe77876544c]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x1484e9) [0x7fe7787484e9]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15e99e) [0x7fe77875e99e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x7b) [0x7fe77875ec0b]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x160f27) [0x7fe778760f27]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x161ca7) [0x7fe778761ca7]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x29e) [0x7fe77875ee2e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x162a39) [0x7fe778762a39]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x599) [0x7fe77875f129]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x599) [0x7fe77875f129]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x599) [0x7fe77875f129]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x162a39) [0x7fe778762a39]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x599) [0x7fe77875f129]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x167cbd) [0x7fe778767cbd]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x599) [0x7fe77875f129]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x162a39) [0x7fe778762a39]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x599) [0x7fe77875f129]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x160f27) [0x7fe778760f27]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x161ca7) [0x7fe778761ca7]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x14e1f3) [0x7fe77874e1f3]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x15e99e) [0x7fe77875e99e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x7b) [0x7fe77875ec0b]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x160f27) [0x7fe778760f27]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x161ca7) [0x7fe778761ca7]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_eval+0x29e) [0x7fe77875ee2e]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(Rf_ReplIteration+0x256) [0x7fe778795d46]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(+0x196109) [0x7fe778796109]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/../../lib/libR.so(run_Rmainloop+0x49) [0x7fe7787961b9]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/R(main+0x1d) [0x56214303e06d]", 
- .     "/lib64/libc.so.6(+0x3248) [0x7fe778410248]", "/lib64/libc.so.6(__libc_start_main+0x8b) [0x7fe77841030b]", 
- .     "/home/dan/.conda/envs/rgeo/lib/R/bin/exec/R(+0x109d) [0x56214303e09d]"
- .     )), class = "Rcpp_stack_trace")), class = c("Rcpp::exception", 
- . "C++Error", "error", "condition")))
+[0;31mTypeError[0m: bad operand type for unary -: 'str'
 

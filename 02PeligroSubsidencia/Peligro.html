@@ -331,7 +331,7 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-2-con-ggplot2">Forma 2 con <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-de-extencion">Opción de extención</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-de-extension">Opción de extensión</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-afectada-por-la-subsidencia">Área afectada por la subsidencia</a><ul class="nav section-nav flex-column">
@@ -339,8 +339,8 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-las-velocidades-de-subsidencia">Clasificación de las velocidades de subsidencia</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-automatica">Forma automatica</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-para-el-riesgo">Clasificacíon para el riesgo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-automatica">Forma automática</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-para-el-riesgo">Clasificación para el riesgo</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-manual">Forma manual</a><ul class="nav section-nav flex-column">
@@ -369,23 +369,28 @@
 <p>Se cargaran las bibliotecas a usar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#bibliotecas para lectura de información</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span><span class="w"> </span><span class="c1">#uso de información vectorial</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">terra</span><span class="p">)</span><span class="w"> </span><span class="c1">#uso de información raster</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w"> </span><span class="c1">#gráficos</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">ggspatial</span><span class="p">)</span><span class="w"> </span><span class="c1">#gráficos para norte y escala</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">moments</span><span class="p">)</span><span class="w"> </span><span class="c1">#estadigráfos</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">DT</span><span class="p">)</span><span class="w"> </span><span class="c1">#formato de tabla</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#bibliotecas para lectura de información</span>
+<span class="n">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span> <span class="c1">#uso de información vectorial</span>
+<span class="n">library</span><span class="p">(</span><span class="n">terra</span><span class="p">)</span> <span class="c1">#uso de información raster</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span> <span class="c1">#gráficos</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ggspatial</span><span class="p">)</span> <span class="c1">#gráficos para norte y escala</span>
+<span class="n">library</span><span class="p">(</span><span class="n">moments</span><span class="p">)</span> <span class="c1">#estadigráfos</span>
+<span class="n">library</span><span class="p">(</span><span class="n">DT</span><span class="p">)</span> <span class="c1">#formato de tabla</span>
 
 <span class="c1">#biblioteca para desplegar en mapa</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linking to GEOS 3.13.0, GDAL 3.10.0, PROJ 9.5.1; sf_use_s2() is TRUE
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>terra 1.8.5
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#bibliotecas para lectura de información</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span> <span class="c1">#uso de información vectorial</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">library</span><span class="p">(</span><span class="n">terra</span><span class="p">)</span> <span class="c1">#uso de información raster</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span> <span class="c1">#gráficos</span>
+
+<span class="ne">NameError</span>: name &#39;library&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -399,9 +404,9 @@
 <p>Se usa el comando <code class="docutils literal notranslate"><span class="pre">getwd()</span></code> para observar el directorio donde ejecutamos el notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dir_r</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;./subsidencia&quot;</span>
-<span class="n">archivo_r</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;TorreonSenDT12_2014_2023_geoVelocity.tiff&quot;</span>
-<span class="n">dir_data_r</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="n">dir_r</span><span class="p">,</span><span class="w"> </span><span class="n">archivo_r</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_r</span> <span class="o">&lt;-</span> <span class="s2">&quot;./subsidencia&quot;</span>
+<span class="n">archivo_r</span> <span class="o">&lt;-</span> <span class="s2">&quot;TorreonSenDT12_2014_2023_geoVelocity.tiff&quot;</span>
+<span class="n">dir_data_r</span> <span class="o">&lt;-</span> <span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_r</span><span class="p">,</span> <span class="n">archivo_r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -409,7 +414,7 @@
 <p>Procedemos a cargar la variable en nuestro entorno de trabajo para poderlo desplegar en el mapa.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rast</span><span class="p">(</span><span class="n">dir_data_r</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub</span> <span class="o">&lt;-</span> <span class="n">rast</span><span class="p">(</span><span class="n">dir_data_r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -424,7 +429,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
@@ -445,27 +450,19 @@ max value   :                            0.0160646
 <p>Resolución de mapa de velocidades en grados</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">res</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>0.000672910236568648</li><li>0.000628358076667405</li></ol>
-</div></div>
 </div>
 <section id="analisis-exploratorio-de-los-datos-de-velocidad-de-subsidencia">
 <h2>Análisis exploratorio de los datos de velocidad de subsidencia<a class="headerlink" href="#analisis-exploratorio-de-los-datos-de-velocidad-de-subsidencia" title="Link to this heading">#</a></h2>
-<p>Boxplot, donde se observa que los datos atipicos representa la velocidad de subsidencia</p>
+<p>Boxplot, donde se observa que los datos atípicos representan la velocidad de subsidencia</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
-<span class="w">       </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Distribución de la velocidad de Subsidencia&quot;</span><span class="p">,</span>
-<span class="w">       </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;velocidad [m/año]&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxplot</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">horizontal</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span>
+       <span class="n">main</span> <span class="o">=</span> <span class="s2">&quot;Distribución de la velocidad de Subsidencia&quot;</span><span class="p">,</span>
+       <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;velocidad [m/año]&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -479,9 +476,9 @@ max value   :                            0.0160646
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span>
-<span class="w">     </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;velocidad [m/año]&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Frecuencia (%)&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Distribución de la velocidad de Subsidencia [pixeles]&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> 
+     <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;velocidad [m/año]&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s2">&quot;Frecuencia (%)&quot;</span><span class="p">,</span> 
+     <span class="n">main</span> <span class="o">=</span> <span class="s2">&quot;Distribución de la velocidad de Subsidencia [pixeles]&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -497,23 +494,23 @@ max value   :                            0.0160646
 #cambio a texto presiona “m”</p>
 <p>density(vel_sub,
 main = “Distribución de la velocidad de Subdidencia”)</p>
-<p>Cálculo de estadigráfos, se obtiene con el fin de realizar un análisis exploratorio del mapa de velocidades.</p>
+<p>Cálculo de estadígrafos, se obtiene con el fin de realizar un análisis exploratorio del mapa de velocidades.</p>
 <section id="forma-1">
 <h3>Forma 1<a class="headerlink" href="#forma-1" title="Link to this heading">#</a></h3>
 <p>Usando <code class="docutils literal notranslate"><span class="pre">global()</span></code> del paquete terra.</p>
 <p>Nota: Se recomienda la Forma 2.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Forma  1 calculo de estadisticos</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Forma  1 calculo de estadisticos</span>
 <span class="c1">#Se recomienda la forma 2</span>
-<span class="n">sub_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">global</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">fun</span><span class="o">=</span><span class="s">&quot;mean&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-<span class="n">sub_max</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">global</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">fun</span><span class="o">=</span><span class="s">&quot;max&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-<span class="n">sub_min</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">global</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">fun</span><span class="o">=</span><span class="s">&quot;min&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-<span class="n">sub_sd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">global</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">fun</span><span class="o">=</span><span class="s">&quot;sd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">sub_mean</span> <span class="o">&lt;-</span> <span class="k">global</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">fun</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">.</span><span class="n">rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">sub_max</span> <span class="o">&lt;-</span> <span class="k">global</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">fun</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">.</span><span class="n">rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">sub_min</span> <span class="o">&lt;-</span> <span class="k">global</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">fun</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">.</span><span class="n">rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">sub_sd</span> <span class="o">&lt;-</span> <span class="k">global</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">fun</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">.</span><span class="n">rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 
-<span class="n">sub_estadisticos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame </span><span class="p">(</span>
-<span class="w">  </span><span class="n">Estadígrafo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Media&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Maximo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;minimo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;des estandar&quot;</span><span class="p">),</span>
-<span class="w">  </span><span class="n">Valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">sub_mean</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">sub_max</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">sub_min</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">sub_sd</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">])</span>
+<span class="n">sub_estadisticos</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span> <span class="p">(</span>
+  <span class="n">Estadígrafo</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;Media&quot;</span><span class="p">,</span> <span class="s2">&quot;Maximo&quot;</span><span class="p">,</span> <span class="s2">&quot;minimo&quot;</span><span class="p">,</span> <span class="s2">&quot;des estandar&quot;</span><span class="p">),</span>
+  <span class="n">Valor</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">sub_mean</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">sub_max</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">sub_min</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">sub_sd</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="p">)</span>
 
 <span class="n">sub_estadisticos</span>
@@ -533,10 +530,10 @@ main = “Distribución de la velocidad de Subdidencia”)</p>
 	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><td>Media       </td><td>-0.003851867</td></tr>
-	<tr><td>Maximo      </td><td> 0.022782536</td></tr>
-	<tr><td>minimo      </td><td>-0.154557407</td></tr>
-	<tr><td>des estandar</td><td> 0.010003168</td></tr>
+	<tr><td>Media       </td><td>-0.01108233</td></tr>
+	<tr><td>Maximo      </td><td> 0.02195245</td></tr>
+	<tr><td>minimo      </td><td>-0.15455741</td></tr>
+	<tr><td>des estandar</td><td> 0.02111735</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -545,15 +542,15 @@ main = “Distribución de la velocidad de Subdidencia”)</p>
 </section>
 <section id="forma-2">
 <h3>Forma 2<a class="headerlink" href="#forma-2" title="Link to this heading">#</a></h3>
-<p>Transformar el archivo raster a un data frame, y sacar sus estadísticos.
+<p>Transformar el archivo ráster a un data frame, y sacar sus estadísticos.
 También se puede usar la librería <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> para poder realizar las representaciones gráficas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#transformación de la información</span>
-<span class="n">vel_sub2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">xy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#transformación de la información</span>
+<span class="n">vel_sub2</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">xy</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
 <span class="c1">#omite los valores NA</span>
-<span class="n">vel_sub2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">na.omit</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">)</span>
-<span class="nf">str</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">)</span>
+<span class="n">vel_sub2</span> <span class="o">&lt;-</span> <span class="n">na</span><span class="o">.</span><span class="n">omit</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -566,26 +563,26 @@ También se puede usar la librería <code class="docutils literal notranslate"><
 </div>
 </div>
 </div>
-<p>Estadisticos:</p>
+<p>Estadísticos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sub_median</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">median</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">])</span>
-<span class="n">sub_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">])</span>
-<span class="n">sub_min</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">])</span>
-<span class="n">sub_max</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">])</span>
-<span class="n">sub_q1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.double</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="m">0.25</span><span class="p">))</span>
-<span class="n">sub_q3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.double</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="m">0.75</span><span class="p">))</span>
-<span class="n">sub_sd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">])</span>
-<span class="n">sub_sim</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">skewness</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">])</span>
-<span class="n">sub_kur</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kurtosis</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">])</span>
-<span class="n">sub_ran</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sub_max</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sub_min</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_median</span> <span class="o">&lt;-</span> <span class="n">median</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">sub_mean</span> <span class="o">&lt;-</span> <span class="n">mean</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">sub_min</span> <span class="o">&lt;-</span> <span class="nb">min</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">sub_max</span> <span class="o">&lt;-</span> <span class="nb">max</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">sub_q1</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="n">quantile</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">],</span><span class="mf">0.25</span><span class="p">))</span>
+<span class="n">sub_q3</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="n">quantile</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">],</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">sub_sd</span> <span class="o">&lt;-</span> <span class="n">sd</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">sub_sim</span> <span class="o">&lt;-</span> <span class="n">skewness</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">sub_kur</span> <span class="o">&lt;-</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">sub_ran</span> <span class="o">&lt;-</span> <span class="n">sub_max</span> <span class="o">-</span> <span class="n">sub_min</span>
 
-<span class="n">sub_estadisticos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame </span><span class="p">(</span>
-<span class="w">  </span><span class="n">Estadígrafo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Mediana&quot;</span><span class="p">,</span><span class="s">&quot;Media&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mínimo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Máximo&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                  </span><span class="s">&quot;Cuantil 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cuantil 3&quot;</span><span class="w">  </span><span class="p">,</span><span class="s">&quot;Desviación Estándar&quot;</span><span class="p">,</span>
-<span class="w">                 </span><span class="s">&quot;Simetría&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Kurtosis&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rango&quot;</span><span class="p">),</span>
-<span class="w">  </span><span class="n">Valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">sub_median</span><span class="p">,</span><span class="w"> </span><span class="n">sub_mean</span><span class="p">,</span><span class="w"> </span><span class="n">sub_min</span><span class="p">,</span><span class="w"> </span><span class="n">sub_max</span><span class="p">,</span>
-<span class="w">           </span><span class="n">sub_q1</span><span class="p">,</span><span class="w"> </span><span class="n">sub_q3</span><span class="p">,</span><span class="w"> </span><span class="n">sub_sd</span><span class="p">,</span><span class="w"> </span><span class="n">sub_sim</span><span class="p">,</span><span class="w"> </span><span class="n">sub_kur</span><span class="p">,</span><span class="w"> </span><span class="n">sub_ran</span><span class="p">),</span><span class="m">4</span><span class="p">)</span>
+<span class="n">sub_estadisticos</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span> <span class="p">(</span>
+  <span class="n">Estadígrafo</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;Mediana&quot;</span><span class="p">,</span><span class="s2">&quot;Media&quot;</span><span class="p">,</span> <span class="s2">&quot;Mínimo&quot;</span><span class="p">,</span> <span class="s2">&quot;Máximo&quot;</span><span class="p">,</span> 
+                  <span class="s2">&quot;Cuantil 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Cuantil 3&quot;</span>  <span class="p">,</span><span class="s2">&quot;Desviación Estándar&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Simetría&quot;</span><span class="p">,</span> <span class="s2">&quot;Kurtosis&quot;</span><span class="p">,</span> <span class="s2">&quot;Rango&quot;</span><span class="p">),</span>
+  <span class="n">Valor</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">sub_median</span><span class="p">,</span> <span class="n">sub_mean</span><span class="p">,</span> <span class="n">sub_min</span><span class="p">,</span> <span class="n">sub_max</span><span class="p">,</span>
+           <span class="n">sub_q1</span><span class="p">,</span> <span class="n">sub_q3</span><span class="p">,</span> <span class="n">sub_sd</span><span class="p">,</span> <span class="n">sub_sim</span><span class="p">,</span> <span class="n">sub_kur</span><span class="p">,</span> <span class="n">sub_ran</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">sub_estadisticos</span>
@@ -614,14 +611,17 @@ También se puede usar la librería <code class="docutils literal notranslate"><
 </table>
 </div></div>
 </div>
-<p>Supuesto de normalidad, se observa que los valores que estan debajo de la linea de normalidad representan a la subsidencia del terreno.
-el grafico se puede omitir.</p>
+<p>Supuesto de normalidad, se observa que los valores que están debajo de la línea de normalidad representan a la subsidencia del terreno.
+el gráfico se puede omitir.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span>
-<span class="nf">qqline</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;steelblue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qqnorm</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">],</span> <span class="n">pch</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="n">qqline</span><span class="p">(</span><span class="n">vel_sub2</span><span class="p">[,</span><span class="mi">3</span><span class="p">],</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../_images/a24b8c5eb60d7841f4ebe32dbd30682719a7d4aa23b9c1ee521e6820482661bb.png"><img alt="../_images/a24b8c5eb60d7841f4ebe32dbd30682719a7d4aa23b9c1ee521e6820482661bb.png" src="../_images/a24b8c5eb60d7841f4ebe32dbd30682719a7d4aa23b9c1ee521e6820482661bb.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 </section>
@@ -632,13 +632,13 @@ el grafico se puede omitir.</p>
 <h4>Forma 1 con <code class="docutils literal notranslate"><span class="pre">plot()</span></code><a class="headerlink" href="#forma-1-con-plot" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#forma tradicional</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#forma tradicional</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 <span class="c1">#contour(vel_sub, add=TRUE)</span>
 </pre></div>
 </div>
@@ -653,13 +653,13 @@ el grafico se puede omitir.</p>
 <p>Grafico con la libreria <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">layer_spatial</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">annotation_north_arrow</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tr&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">which_north</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">north_arrow_fancy_orienteering</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">annotation_scale</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;br&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">scale_fill_continuous</span><span class="p">(</span><span class="n">na.value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;viridis&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Velocidad/n[año/m]&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bottom&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">layer_spatial</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">annotation_north_arrow</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">which_north</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="n">north_arrow_fancy_orienteering</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">annotation_scale</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;br&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">scale_fill_continuous</span><span class="p">(</span><span class="n">na</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">NA</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;viridis&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span> <span class="s2">&quot;Velocidad/n[año/m]&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">theme</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -672,31 +672,34 @@ el grafico se puede omitir.</p>
 </div>
 </div>
 <p>Usando la biblioteca ggplot2.</p>
-<p>Las unidades del mapa de velocidades resultado del proceso en MintPy son en metros, se puede realizar la conversion a otras unidades por ejemplo: <span class="math notranslate nohighlight">\(raster*100=cm\)</span></p>
+<p>Las unidades del mapa de velocidades resultado del proceso en MintPy son en metros, se puede realizar la conversión a otras unidades por ejemplo: <span class="math notranslate nohighlight">\(raster*100=cm\)</span></p>
 </section>
 </section>
-<section id="opcion-de-extencion">
-<h3>Opción de extención<a class="headerlink" href="#opcion-de-extencion" title="Link to this heading">#</a></h3>
-<p>La extención del mapa de velocidades es extensa, se puede reducir.</p>
+<section id="opcion-de-extension">
+<h3>Opción de extensión<a class="headerlink" href="#opcion-de-extension" title="Link to this heading">#</a></h3>
+<p>La extensión del mapa de velocidades es extensa, se puede reducir.</p>
 <p>Se requiere un vector con las coordenadas de los extremos deseados (E W S N) (xmin, xmax, ymin, ymax)</p>
-<p>nota. si no se requiere se puede omitir esta sección</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>si no se requiere se puede omitir esta sección</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#vector para recorte opcional</span>
-<span class="n">ext</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="m">-103.7</span><span class="p">,</span><span class="m">-102.45</span><span class="p">,</span><span class="m">25.2</span><span class="p">,</span><span class="m">26.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#vector para recorte opcional</span>
+<span class="n">ext</span><span class="o">&lt;-</span><span class="n">c</span><span class="p">(</span><span class="o">-</span><span class="mf">103.7</span><span class="p">,</span><span class="o">-</span><span class="mf">102.45</span><span class="p">,</span><span class="mf">25.2</span><span class="p">,</span><span class="mf">26.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">crop</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">ext</span><span class="p">,</span><span class="w"> </span><span class="n">snap</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;near&quot;</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub</span> <span class="o">&lt;-</span> <span class="n">crop</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">ext</span><span class="p">,</span> <span class="n">snap</span><span class="o">=</span> <span class="s2">&quot;near&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -708,16 +711,16 @@ el grafico se puede omitir.</p>
 </section>
 <section id="area-afectada-por-la-subsidencia">
 <h2>Área afectada por la subsidencia<a class="headerlink" href="#area-afectada-por-la-subsidencia" title="Link to this heading">#</a></h2>
-<p>Para la obtención del area afectada por la subsidencia, en una primera instancia utilizamos el valor de la desviacion estandar para realizar un corte y resaltar la zona de afectada por la subsidencia del terreno.</p>
-<p>Se pude modificar el valor de forma manual modificando la variable <code class="docutils literal notranslate"><span class="pre">cort_sub</span></code>, rl valor por defecto de la variable es la desviación estandar.</p>
+<p>Para la obtención del área afectada por la subsidencia, en una primera instancia utilizamos el valor de la desviación estándar para realizar un corte y resaltar la zona de afectada por la subsidencia del terreno.</p>
+<p>Se pude modificar el valor de forma manual modificando la variable <code class="docutils literal notranslate"><span class="pre">cort_sub</span></code>, el valor por defecto de la variable es la desviación estándar.</p>
 <section id="valor-de-corte-de-subsidencia">
 <h3>Valor de corte de subsidencia<a class="headerlink" href="#valor-de-corte-de-subsidencia" title="Link to this heading">#</a></h3>
 <p>edición del valor</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># variable a modicar opción manual</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># variable a modicar opción manual</span>
 <span class="c1"># descomenta o comenta para cambiar el valor</span>
-<span class="n">cort_sub</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="o">-</span><span class="nf">round</span><span class="p">(</span><span class="n">sub_sd</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">cort_sub</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="nb">round</span><span class="p">(</span><span class="n">sub_sd</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="c1"># valor personalizado para obtener el area afectada por la subsidencia</span>
 <span class="c1">#cort_sub &lt;- -0.035</span>
 <span class="n">cort_sub</span>
@@ -729,13 +732,13 @@ el grafico se puede omitir.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sub_des</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">vel_sub</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">cort_sub</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">sub_des</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_des</span> <span class="o">&lt;-</span> <span class="n">vel_sub</span> <span class="o">&lt;=</span> <span class="n">cort_sub</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sub_des</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -745,7 +748,7 @@ el grafico se puede omitir.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">sub_des</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">(</span><span class="n">sub_des</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -753,14 +756,14 @@ el grafico se puede omitir.</p>
 <p>Calcular el área de subsidencia, se transforma el raster en un vector</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># transformar a poligono</span>
-<span class="n">area_sub</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.polygons</span><span class="p">(</span><span class="n">sub_des</span><span class="p">)</span><span class="w"> </span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">area_sub</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transformar a poligono</span>
+<span class="n">area_sub</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">polygons</span><span class="p">(</span><span class="n">sub_des</span><span class="p">)</span> 
+<span class="n">plot</span><span class="p">(</span><span class="n">area_sub</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -771,7 +774,7 @@ el grafico se puede omitir.</p>
 <p>Transformar la información de clase <code class="docutils literal notranslate"><span class="pre">SpatVector</span></code> de la libreria <code class="docutils literal notranslate"><span class="pre">terra</span></code> a un <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> de la libreria <code class="docutils literal notranslate"><span class="pre">sf</span></code>, con el fin de calcular el área del poligono de subsidencia.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># información vectorial obtenidos de la transformación</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># información vectorial obtenidos de la transformación</span>
 <span class="n">area_sub</span>
 </pre></div>
 </div>
@@ -779,9 +782,9 @@ el grafico se puede omitir.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#transformación de spatvetor a dataframe</span>
-<span class="n">area_sub</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">st_as_sf</span><span class="p">(</span><span class="n">area_sub</span><span class="p">)</span><span class="w"> </span>
-<span class="nf">class</span><span class="p">(</span><span class="n">area_sub</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#transformación de spatvetor a dataframe</span>
+<span class="n">area_sub</span> <span class="o">&lt;-</span> <span class="n">st_as_sf</span><span class="p">(</span><span class="n">area_sub</span><span class="p">)</span> 
+<span class="n">class</span><span class="p">(</span><span class="n">area_sub</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -796,20 +799,23 @@ el grafico se puede omitir.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculo del area y su transformacion a km cuadrados</span>
-<span class="n">area_sub</span><span class="o">$</span><span class="n">area_km2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">st_area</span><span class="p">(</span><span class="n">area_sub</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">10</span><span class="o">^</span><span class="m">6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculo del area y su transformacion a km cuadrados</span>
+<span class="n">area_sub</span><span class="err">$</span><span class="n">area_km2</span> <span class="o">&lt;-</span> <span class="n">st_area</span><span class="p">(</span><span class="n">area_sub</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="o">^</span><span class="mi">6</span>
 <span class="c1"># transformacion a data frame por un error no identificado</span>
-<span class="n">area_sub1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">area_sub</span><span class="p">)</span>
+<span class="n">area_sub1</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">area_sub</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Área afectada por la subsidencia al corte de</p>
-<p>nota. El campo de valor entero 1 de la columna uno pertenece al area de subsidencia</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El campo de valor entero 1 de la columna uno pertenece al área de subsidencia</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">cort_sub</span><span class="w"> </span><span class="c1">#valor de corte</span>
-<span class="n">area_sub1</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cort_sub</span> <span class="c1">#valor de corte</span>
+<span class="n">area_sub1</span><span class="p">[</span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -829,16 +835,16 @@ el grafico se puede omitir.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">area_sub1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span><span class="p">(</span><span class="n">area_sub1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Obtencion del valor unico de la subsidencia, la unidad es en <span class="math notranslate nohighlight">\(km^2\)</span></p>
+<p>Obtención del valor único de la subsidencia, la unidad es en <span class="math notranslate nohighlight">\(km^2\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">area_s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">area_sub1</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="c1">#filtro para obtener el area</span>
-<span class="n">area_s</span><span class="w"> </span><span class="c1">#area de subsidencia</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_s</span> <span class="o">&lt;-</span> <span class="n">area_sub1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1">#filtro para obtener el area</span>
+<span class="n">area_s</span> <span class="c1">#area de subsidencia</span>
 </pre></div>
 </div>
 </div>
@@ -851,13 +857,13 @@ el grafico se puede omitir.</p>
 <p>Mapa area de subsidencia</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="c1">#annotation_map_tile(type = &quot;osm&quot;) +</span>
-<span class="w">  </span><span class="nf">layer_spatial</span><span class="p">(</span><span class="n">area_sub</span><span class="p">[</span><span class="m">2</span><span class="p">,],</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s">&quot;Subsidencia Laguna&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">annotation_scale</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;br&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">annotation_north_arrow</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tr&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">which_north</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                         </span><span class="n">pad_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">unit</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;in&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">pad_y</span><span class="w"> </span><span class="o">=</span><span class="nf">unit</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="s">&quot;in&quot;</span><span class="p">),</span><span class="w"> </span>
-<span class="w">                         </span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">north_arrow_fancy_orienteering</span><span class="p">)</span><span class="w"> </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="c1">#annotation_map_tile(type = &quot;osm&quot;) +</span>
+  <span class="n">layer_spatial</span><span class="p">(</span><span class="n">area_sub</span><span class="p">[</span><span class="mi">2</span><span class="p">,],</span> <span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;Subsidencia Laguna&quot;</span><span class="p">))</span> <span class="o">+</span>
+  <span class="n">annotation_scale</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;br&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">annotation_north_arrow</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">which_north</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span> 
+                         <span class="n">pad_x</span> <span class="o">=</span> <span class="n">unit</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">),</span> <span class="n">pad_y</span> <span class="o">=</span><span class="n">unit</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="s2">&quot;in&quot;</span><span class="p">),</span> 
+                         <span class="n">style</span> <span class="o">=</span> <span class="n">north_arrow_fancy_orienteering</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -870,27 +876,27 @@ el grafico se puede omitir.</p>
 <section id="clasificacion-de-las-velocidades-de-subsidencia">
 <h2>Clasificación de las velocidades de subsidencia<a class="headerlink" href="#clasificacion-de-las-velocidades-de-subsidencia" title="Link to this heading">#</a></h2>
 <section id="forma-automatica">
-<h3>Forma automatica<a class="headerlink" href="#forma-automatica" title="Link to this heading">#</a></h3>
-<p>Del valor de corte, se clasificara los valores del mapa de velocidades en 5 categorias</p>
+<h3>Forma automática<a class="headerlink" href="#forma-automatica" title="Link to this heading">#</a></h3>
+<p>Del valor de corte, se clasificará los valores del mapa de velocidades en 5 categorías</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># dejando los valores apartir del valor de corte</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dejando los valores apartir del valor de corte</span>
 
 <span class="c1"># Aplicar la máscara para establecer los valores a NA en el raster original</span>
 <span class="c1"># se usara el poligono creado del area de corte</span>
-<span class="n">vel_sub_clas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mask</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">area_sub</span><span class="p">[</span><span class="m">2</span><span class="p">,],</span><span class="w"> </span><span class="n">updatevalue</span><span class="o">=</span><span class="kc">NA</span><span class="p">)</span>
+<span class="n">vel_sub_clas</span> <span class="o">&lt;-</span> <span class="n">mask</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">area_sub</span><span class="p">[</span><span class="mi">2</span><span class="p">,],</span> <span class="n">updatevalue</span><span class="o">=</span><span class="n">NA</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -898,7 +904,7 @@ el grafico se puede omitir.</p>
 <a class="reference internal image-reference" href="../_images/8f5048e4bd83362c15f4a96b6ef36f2dc81aaffdd11ff581ef79fc17da223d71.png"><img alt="../_images/8f5048e4bd83362c15f4a96b6ef36f2dc81aaffdd11ff581ef79fc17da223d71.png" src="../_images/8f5048e4bd83362c15f4a96b6ef36f2dc81aaffdd11ff581ef79fc17da223d71.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
-<p>#Cambiar a condigo para tener el mapa con ggplot y quitar `</p>
+<p>#Cambiar a código para tener el mapa con ggplot y quitar `</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
   <span class="n">layer_spatial</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">)</span><span class="o">+</span>
   <span class="n">annotation_north_arrow</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">which_north</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="n">north_arrow_fancy_orienteering</span><span class="p">)</span> <span class="o">+</span>
@@ -910,21 +916,21 @@ el grafico se puede omitir.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">categorias</span><span class="o">&lt;-</span><span class="nf">cut</span><span class="p">(</span><span class="nf">values</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">),</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">include.lowest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categorias</span><span class="o">&lt;-</span><span class="n">cut</span><span class="p">(</span><span class="n">values</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">),</span> <span class="n">breaks</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">include</span><span class="o">.</span><span class="n">lowest</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub_clas_cat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setValues</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">,</span><span class="n">categorias</span><span class="w"> </span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub_clas_cat</span> <span class="o">&lt;-</span> <span class="n">setValues</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">,</span><span class="n">categorias</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub_clas_cat</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub_clas_cat</span>
 </pre></div>
 </div>
 </div>
@@ -946,14 +952,14 @@ max value   :                                    1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#mapa categorizado de la subsidencia</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mapa categorizado de la subsidencia</span>
 
-<span class="n">map1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">layer_spatial</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">annotation_north_arrow</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tr&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">which_north</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">north_arrow_fancy_orienteering</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">annotation_scale</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;br&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">scale_fill_brewer</span><span class="p">(</span><span class="n">na.value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;qual&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Clasificación /nsubsidencia&quot;</span><span class="p">)</span>
+<span class="n">map1</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">layer_spatial</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">annotation_north_arrow</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">which_north</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="n">north_arrow_fancy_orienteering</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">annotation_scale</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;br&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">scale_fill_brewer</span><span class="p">(</span><span class="n">na</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">NA</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;qual&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span> <span class="s2">&quot;Clasificación /nsubsidencia&quot;</span><span class="p">)</span>
 
 <span class="n">map1</span>
 </pre></div>
@@ -969,7 +975,7 @@ max value   :                                    1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#ggsave(&quot;myplot.pdf&quot;, map1, width = 20, height = 16, units = &quot;cm&quot;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ggsave(&quot;myplot.pdf&quot;, map1, width = 20, height = 16, units = &quot;cm&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -985,13 +991,13 @@ max value   :                                    1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">clas_sub_cat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.polygons</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">)</span><span class="w"> </span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clas_sub_cat</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">polygons</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">)</span> 
+<span class="n">plot</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1001,40 +1007,40 @@ max value   :                                    1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">values</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="clasificacion-para-el-riesgo">
-<h4>Clasificacíon para el riesgo<a class="headerlink" href="#clasificacion-para-el-riesgo" title="Link to this heading">#</a></h4>
-<p>Para evaluar el riesgo, se requiere la claisficación de la subsidencia, se colocara 1 al rango del valor maximo a la desviación estandar, que anteriormente se clasifico como NA, para que no se tenga errores al momento de multiplicar el resultado con otro raster</p>
-<p>Para extraer lo datos de las catgorias sigue los pasos:</p>
+<h4>Clasificación para el riesgo<a class="headerlink" href="#clasificacion-para-el-riesgo" title="Link to this heading">#</a></h4>
+<p>Para evaluar el riesgo, se requiere la clasificación de la subsidencia, se colocará 1 al rango del valor máximo a la desviación estándar, que anteriormente se clasificó como NA, para que no se tenga errores al momento de multiplicar el resultado con otro raster</p>
+<p>Para extraer lo datos de las categorías sigue los pasos:</p>
 <ul class="simple">
-<li><p>obtencion de los rangos de las categorias en un tipo de dato factor</p></li>
-<li><p>tranformar la información de factor a vector</p></li>
+<li><p>obtención de los rangos de las categorías en un tipo de dato factor</p></li>
+<li><p>trasformar la información de factor a vector</p></li>
 <li><p>eliminar los caracteres que representan los intervalos</p></li>
-<li><p>se separan los numeros separados por comas</p></li>
+<li><p>se separan los números separados por comas</p></li>
 <li><p>guardar cada valor separado en un vector</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#obtencion de los intervalos de corte calculados de forma autonoma</span>
-<span class="n">categoria_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cut</span><span class="p">(</span><span class="nf">values</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">),</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">include.lowest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#obtención de los intervalos de corte calculados de forma autónoma</span>
+<span class="n">categoria_data</span> <span class="o">&lt;-</span> <span class="n">cut</span><span class="p">(</span><span class="n">values</span><span class="p">(</span><span class="n">vel_sub_clas</span><span class="p">),</span> <span class="n">breaks</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">include</span><span class="o">.</span><span class="n">lowest</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vec_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.vector</span><span class="p">(</span><span class="nf">na.omit</span><span class="p">((</span><span class="nf">unique</span><span class="p">(</span><span class="n">categoria_data</span><span class="p">))))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec_data</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">na</span><span class="o">.</span><span class="n">omit</span><span class="p">((</span><span class="n">unique</span><span class="p">(</span><span class="n">categoria_data</span><span class="p">))))</span>
 <span class="n">vec_data</span>
 </pre></div>
 </div>
@@ -1050,10 +1056,10 @@ max value   :                                    1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">vec_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;[//(//)]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">vec_data</span><span class="p">)</span>
-<span class="n">vec_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;[//[//)]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">vec_data</span><span class="p">)</span>
-<span class="n">vec_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;]$&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">vec_data</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="n">vec_data</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">&quot;[//(//)]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">vec_data</span><span class="p">)</span>
+<span class="n">vec_data</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">&quot;[//[//)]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">vec_data</span><span class="p">)</span>
+<span class="n">vec_data</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">&quot;]$&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">vec_data</span><span class="p">)</span>
 <span class="n">vec_data</span>
 </pre></div>
 </div>
@@ -1069,20 +1075,20 @@ max value   :                                    1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty numeric vector to store the extracted values</span>
-<span class="n">num_cat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">numeric</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty numeric vector to store the extracted values</span>
+<span class="n">num_cat</span> <span class="o">&lt;-</span> <span class="n">numeric</span><span class="p">()</span>
 
 <span class="c1"># Iterate through each element in the &#39;v&#39; vector</span>
-<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">vec_data</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1"># Split the current element into two strings based on the comma</span>
-<span class="w">  </span><span class="n">split_values</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">strsplit</span><span class="p">(</span><span class="n">vec_data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">vec_data</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1"># Split the current element into two strings based on the comma</span>
+  <span class="n">split_values</span> <span class="o">&lt;-</span> <span class="n">strsplit</span><span class="p">(</span><span class="n">vec_data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
 
-<span class="w">  </span><span class="c1"># Convert the split values to numeric and append them to the &#39;numeric_values&#39; vector</span>
-<span class="w">  </span><span class="n">num_cat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">num_cat</span><span class="p">,</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">split_values</span><span class="p">[[</span><span class="m">1</span><span class="p">]]))</span>
+  <span class="c1"># Convert the split values to numeric and append them to the &#39;numeric_values&#39; vector</span>
+  <span class="n">num_cat</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">num_cat</span><span class="p">,</span> <span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">split_values</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]))</span>
 <span class="p">}</span>
 
 <span class="c1"># Print the extracted numeric values</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">num_cat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_cat</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1095,25 +1101,25 @@ max value   :                                    1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">m1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="o">-</span><span class="nf">round</span><span class="p">(</span><span class="n">sub_sd</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
-<span class="n">m2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">num_cat</span><span class="p">[</span><span class="m">4</span><span class="p">]</span>
-<span class="n">m3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">num_cat</span><span class="p">[</span><span class="m">6</span><span class="p">]</span>
-<span class="n">m4</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">num_cat</span><span class="p">[</span><span class="m">8</span><span class="p">]</span>
-<span class="n">m5</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">num_cat</span><span class="p">[</span><span class="m">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="n">m1</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="nb">round</span><span class="p">(</span><span class="n">sub_sd</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">m2</span> <span class="o">&lt;-</span> <span class="n">num_cat</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">m3</span> <span class="o">&lt;-</span> <span class="n">num_cat</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">m4</span> <span class="o">&lt;-</span> <span class="n">num_cat</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">m5</span> <span class="o">&lt;-</span> <span class="n">num_cat</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m_reclas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">sub_max</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m3</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="n">m3</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m5</span><span class="p">,</span><span class="w"> </span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">sub_min</span><span class="p">,</span><span class="w"> </span><span class="n">m5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-<span class="n">tabla_reclas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">m_reclas</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_reclas</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">sub_max</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> 
+              <span class="n">m2</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> 
+              <span class="n">m3</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> 
+              <span class="n">m4</span><span class="p">,</span> <span class="n">m3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> 
+              <span class="n">m5</span><span class="p">,</span> <span class="n">m4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> 
+              <span class="n">sub_min</span><span class="p">,</span> <span class="n">m5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">tabla_reclas</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">m_reclas</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">byrow</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 <span class="n">tabla_reclas</span>
 </pre></div>
 </div>
@@ -1134,15 +1140,15 @@ max value   :                                    1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># clas_sub_r representa la clasificación realizada</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># clas_sub_r representa la clasificación realizada</span>
 <span class="c1"># para la evalucion del riesgo</span>
-<span class="n">clas_sub_r</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">classify</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">tabla_reclas</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">clas_sub_r</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<span class="n">clas_sub_r</span> <span class="o">&lt;-</span> <span class="n">classify</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">tabla_reclas</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">clas_sub_r</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1154,18 +1160,18 @@ max value   :                                    1
 </section>
 <section id="forma-manual">
 <h3>Forma manual<a class="headerlink" href="#forma-manual" title="Link to this heading">#</a></h3>
-<p>Se categoriza de forma manual el mapa de velociades, con 5 clases muy bajo, bajo, moderado, alto y muy alto</p>
-<p>donde las categorias son:</p>
+<p>Se categoriza de forma manual el mapa de velocidades, con 5 clases muy bajo, bajo, moderado, alto y muy alto</p>
+<p>donde las categorías son:</p>
 <p>muy bajo = 1<br />
 bajo = 2<br />
 moderado = 3<br />
 alto = 4
 muy alto 5</p>
-<p>Para colocar los valores de categorias modificamos el codigo abajo</p>
+<p>Para colocar los valores de categorías modificamos el código abajo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Valores asignados automaticamente</span>
-<span class="n">tabla_reclas</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Valores asignados automaticamente</span>
+<span class="n">tabla_reclas</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">,]</span>
 </pre></div>
 </div>
 </div>
@@ -1184,15 +1190,15 @@ muy alto 5</p>
 </div>
 <section id="valores-de-clasificacion-manual">
 <h4>Valores de clasificación manual<a class="headerlink" href="#valores-de-clasificacion-manual" title="Link to this heading">#</a></h4>
-<p>En la siguiente celda modifica los rangos de valores mas convenientes</p>
+<p>En la siguiente celda modifica los rangos de valores más convenientes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Colocar valores de la clasificación en forma manual</span>
-<span class="n">m1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-0.01</span>
-<span class="n">m2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-0.035</span>
-<span class="n">m3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-0.06</span>
-<span class="n">m4</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-0.085</span>
-<span class="n">m5</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-0.11</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Colocar valores de la clasificación en forma manual</span>
+<span class="n">m1</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">0.01</span>
+<span class="n">m2</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">0.035</span>
+<span class="n">m3</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">0.06</span>
+<span class="n">m4</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">0.085</span>
+<span class="n">m5</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">0.11</span>
 </pre></div>
 </div>
 </div>
@@ -1200,13 +1206,13 @@ muy alto 5</p>
 <p>Tabla de categorización de valores</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m_reclas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">sub_max</span><span class="p">,</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m3</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="n">m3</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m5</span><span class="p">,</span><span class="w"> </span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">sub_min</span><span class="p">,</span><span class="w"> </span><span class="n">m5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-<span class="n">tabla_reclas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">m_reclas</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_reclas</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">sub_max</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> 
+              <span class="n">m2</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> 
+              <span class="n">m3</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> 
+              <span class="n">m4</span><span class="p">,</span> <span class="n">m3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> 
+              <span class="n">m5</span><span class="p">,</span> <span class="n">m4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> 
+              <span class="n">sub_min</span><span class="p">,</span> <span class="n">m5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">tabla_reclas</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">m_reclas</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">byrow</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 <span class="n">tabla_reclas</span>
 </pre></div>
 </div>
@@ -1227,19 +1233,19 @@ muy alto 5</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub_clas_cat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">classify</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">tabla_reclas</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub_clas_cat</span> <span class="o">&lt;-</span> <span class="n">classify</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">tabla_reclas</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1249,9 +1255,9 @@ muy alto 5</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
-<span class="w">  </span><span class="nf">layer_spatial</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">)</span><span class="o">+</span>
-<span class="w">  </span><span class="nf">scale_fill_continuous</span><span class="p">(</span><span class="n">na.value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;viridis&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">layer_spatial</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">)</span><span class="o">+</span>
+  <span class="n">scale_fill_continuous</span><span class="p">(</span><span class="n">na</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">NA</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1265,13 +1271,13 @@ muy alto 5</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">clas_sub_cat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.polygons</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">)</span><span class="w"> </span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clas_sub_cat</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">polygons</span><span class="p">(</span><span class="n">vel_sub_clas_cat</span><span class="p">)</span> 
+<span class="n">plot</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1282,29 +1288,29 @@ muy alto 5</p>
 </section>
 <section id="clasificacion-para-riesgo">
 <h4>Clasificación para riesgo<a class="headerlink" href="#clasificacion-para-riesgo" title="Link to this heading">#</a></h4>
-<p>En esta parte se exportara para usarlo como insumo al evaluar el riesgo</p>
+<p>En esta parte se exportará para usarlo como insumo al evaluar el riesgo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m_reclas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">sub_max</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m3</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="n">m3</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">m5</span><span class="p">,</span><span class="w"> </span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="n">sub_min</span><span class="p">,</span><span class="w"> </span><span class="n">m5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-<span class="n">tabla_reclas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">m_reclas</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_reclas</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">sub_max</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> 
+              <span class="n">m2</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> 
+              <span class="n">m3</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> 
+              <span class="n">m4</span><span class="p">,</span> <span class="n">m3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> 
+              <span class="n">m5</span><span class="p">,</span> <span class="n">m4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> 
+              <span class="n">sub_min</span><span class="p">,</span> <span class="n">m5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">tabla_reclas</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">m_reclas</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">byrow</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">clas_sub_r</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">classify</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">tabla_reclas</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">clas_sub_r</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pax</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retro</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="p">)</span>
-<span class="nf">north</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s">&quot;bottomright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">divs</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="nf">add_grid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clas_sub_r</span> <span class="o">&lt;-</span> <span class="n">classify</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">tabla_reclas</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">clas_sub_r</span><span class="p">,</span>
+    <span class="n">pax</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">retro</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">north</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sbar</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">divs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">add_grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1319,60 +1325,60 @@ muy alto 5</p>
 <h2>Guardar información<a class="headerlink" href="#guardar-informacion" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">getwd</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">getwd</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">area_sub1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">(</span><span class="n">area_sub1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dir_save_shp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;./resultados&quot;</span>
-<span class="n">archivo_save_shp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;Area_subsidencia_CDMX.shp&quot;</span>
-<span class="n">dir_save_shp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="n">dir_save_shp</span><span class="p">,</span><span class="w"> </span><span class="n">archivo_save_shp</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_save_shp</span> <span class="o">&lt;-</span> <span class="s2">&quot;./resultados&quot;</span>
+<span class="n">archivo_save_shp</span> <span class="o">&lt;-</span> <span class="s2">&quot;Area_subsidencia_CDMX.shp&quot;</span>
+<span class="n">dir_save_shp</span> <span class="o">&lt;-</span> <span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_save_shp</span><span class="p">,</span> <span class="n">archivo_save_shp</span><span class="p">)</span>
 
-<span class="nf">st_write</span><span class="p">(</span><span class="n">area_sub1</span><span class="p">,</span><span class="w"> </span><span class="n">dir_save_shp</span><span class="p">)</span>
+<span class="n">st_write</span><span class="p">(</span><span class="n">area_sub1</span><span class="p">,</span> <span class="n">dir_save_shp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">clas_sub_cat1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">st_as_sf</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">)</span><span class="w"> </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clas_sub_cat1</span> <span class="o">&lt;-</span> <span class="n">st_as_sf</span><span class="p">(</span><span class="n">clas_sub_cat</span><span class="p">)</span> 
 
-<span class="n">dir_save_shp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;./resultados&quot;</span>
-<span class="n">archivo_save_shp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;Cat_subsidencia_CDMX.shp&quot;</span>
-<span class="n">dir_save_shp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="n">dir_save_shp</span><span class="p">,</span><span class="w"> </span><span class="n">archivo_save_shp</span><span class="p">)</span>
+<span class="n">dir_save_shp</span> <span class="o">&lt;-</span> <span class="s2">&quot;./resultados&quot;</span>
+<span class="n">archivo_save_shp</span> <span class="o">&lt;-</span> <span class="s2">&quot;Cat_subsidencia_CDMX.shp&quot;</span>
+<span class="n">dir_save_shp</span> <span class="o">&lt;-</span> <span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_save_shp</span><span class="p">,</span> <span class="n">archivo_save_shp</span><span class="p">)</span>
 
-<span class="nf">st_write</span><span class="p">(</span><span class="n">clas_sub_cat1</span><span class="p">,</span><span class="w"> </span><span class="n">dir_save_shp</span><span class="p">)</span>
+<span class="n">st_write</span><span class="p">(</span><span class="n">clas_sub_cat1</span><span class="p">,</span> <span class="n">dir_save_shp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dir_save_ras</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;./resultados&quot;</span>
-<span class="n">archivo_save_ras</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;Cat_subsidencia_CDMX.tif&quot;</span>
-<span class="n">dir_save_ras</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="n">dir_save_ras</span><span class="p">,</span><span class="w"> </span><span class="n">archivo_save_ras</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_save_ras</span> <span class="o">&lt;-</span> <span class="s2">&quot;./resultados&quot;</span>
+<span class="n">archivo_save_ras</span> <span class="o">&lt;-</span> <span class="s2">&quot;Cat_subsidencia_CDMX.tif&quot;</span>
+<span class="n">dir_save_ras</span> <span class="o">&lt;-</span> <span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_save_ras</span><span class="p">,</span> <span class="n">archivo_save_ras</span><span class="p">)</span>
 
-<span class="nf">writeRaster</span><span class="p">(</span><span class="n">clas_sub_r</span><span class="p">,</span><span class="w"> </span><span class="n">dir_save_ras</span><span class="p">,</span><span class="w"> </span><span class="n">filetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GTiff&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">writeRaster</span><span class="p">(</span><span class="n">clas_sub_r</span><span class="p">,</span> <span class="n">dir_save_ras</span><span class="p">,</span> <span class="n">filetype</span> <span class="o">=</span> <span class="s2">&quot;GTiff&quot;</span><span class="p">,</span> <span class="n">overwrite</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dir_save_ras</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;./resultados&quot;</span>
-<span class="n">archivo_save_ras</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;subsidencia_crop_Laguna.tif&quot;</span>
-<span class="n">dir_save_ras</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="n">dir_save_ras</span><span class="p">,</span><span class="w"> </span><span class="n">archivo_save_ras</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_save_ras</span> <span class="o">&lt;-</span> <span class="s2">&quot;./resultados&quot;</span>
+<span class="n">archivo_save_ras</span> <span class="o">&lt;-</span> <span class="s2">&quot;subsidencia_crop_Laguna.tif&quot;</span>
+<span class="n">dir_save_ras</span> <span class="o">&lt;-</span> <span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_save_ras</span><span class="p">,</span> <span class="n">archivo_save_ras</span><span class="p">)</span>
 
-<span class="nf">writeRaster</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">dir_save_ras</span><span class="p">,</span><span class="w"> </span><span class="n">filetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GTiff&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">writeRaster</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">dir_save_ras</span><span class="p">,</span> <span class="n">filetype</span> <span class="o">=</span> <span class="s2">&quot;GTiff&quot;</span><span class="p">,</span> <span class="n">overwrite</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1386,25 +1392,25 @@ muy alto 5</p>
 <p>Despliegue de información en un mapa interactivo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">leaflet</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">leaflet</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vel_sub</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">leaflet</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span>
-<span class="w">  </span><span class="nf">addProviderTiles</span><span class="p">(</span><span class="s">&quot;OpenStreetMap&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
-<span class="w">  </span><span class="nf">addRasterImage</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;vel_sub&quot;</span><span class="p">,</span>
-<span class="w">                 </span><span class="n">layerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;vel_sub&quot;</span><span class="p">,</span>
-<span class="w">                  </span><span class="n">opacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaflet</span><span class="p">()</span> <span class="o">%&gt;%</span> 
+  <span class="n">addProviderTiles</span><span class="p">(</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">addRasterImage</span><span class="p">(</span><span class="n">vel_sub</span><span class="p">,</span> <span class="n">project</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;vel_sub&quot;</span><span class="p">,</span>
+                 <span class="n">layerId</span> <span class="o">=</span> <span class="s2">&quot;vel_sub&quot;</span><span class="p">,</span>
+                  <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1445,16 +1451,16 @@ muy alto 5</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "r"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ir",
+            name: "python3",
             path: "./02PeligroSubsidencia"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ir'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1509,7 +1515,7 @@ muy alto 5</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-2-con-ggplot2">Forma 2 con <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-de-extencion">Opción de extención</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcion-de-extension">Opción de extensión</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-afectada-por-la-subsidencia">Área afectada por la subsidencia</a><ul class="nav section-nav flex-column">
@@ -1517,8 +1523,8 @@ muy alto 5</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-las-velocidades-de-subsidencia">Clasificación de las velocidades de subsidencia</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-automatica">Forma automatica</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-para-el-riesgo">Clasificacíon para el riesgo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-automatica">Forma automática</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-para-el-riesgo">Clasificación para el riesgo</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-manual">Forma manual</a><ul class="nav section-nav flex-column">

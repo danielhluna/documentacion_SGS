@@ -325,7 +325,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mintpy-en-miztli">
 <h1>MintPy en Miztli<a class="headerlink" href="#mintpy-en-miztli" title="Link to this heading">#</a></h1>
-<p>El <strong>run</strong> 13 es el proceso que realiza <code class="docutils literal notranslate"><span class="pre">Mintpy</span></code>, en esta ocasión, por se una serie muy larga, nos quedamos sin tiempo en el proceso en la miztli. Como es el último proceso, se puede enviar por separado.</p>
+<p>El <strong>run</strong> 13 es el proceso que realiza <code class="docutils literal notranslate"><span class="pre">Mintpy</span></code>, en esta ocasión, por ser una serie muy larga, nos quedamos sin tiempo en el proceso en la miztli. Como es el último proceso, se puede enviar por separado.</p>
 <p>Para iniciar, tenemos que estar dentro de el directorio del proceso, en la carpeta de <code class="docutils literal notranslate"><span class="pre">scratch</span></code>, donde podemos ver todos los resultados del proceso.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023<span class="o">[</span><span class="m">1020</span><span class="o">]</span>
 </pre></div>
@@ -334,7 +334,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>run_files
 </pre></div>
 </div>
-<p>Se observa los archivos que se encuentran en la carpeta.</p>
+<p>Se observan los archivos que se encuentran en la carpeta.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-l
 </pre></div>
 </div>
@@ -355,7 +355,7 @@
 <span class="c1">#BSUB -R rusage[mem=3000]</span>
 </pre></div>
 </div>
-<p>En donde podemos ver la bandera -W con 12:00 horas, este tiempo se tendrá que extender, por lo que se modificara con un vim o nano, ingresando 72:00 en vez de las 12 horas que tenia.</p>
+<p>En donde podemos ver la bandera -W con 12:00 horas, este tiempo se tendrá que extender, por lo que se modificará con un vim o nano, ingresando 72:00 en vez de las 12 horas que tenía.</p>
 <p>El archivo guardado tiene que quedar de la siguiente forma.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
 <span class="c1">#BSUB -J run_13_smallbaseline_0</span>
@@ -378,7 +378,7 @@
 Job<span class="w"> </span>&lt;<span class="m">193335</span>&gt;<span class="w"> </span>is<span class="w"> </span>submitted<span class="w"> </span>to<span class="w"> </span>queue<span class="w"> </span>&lt;q_hpc&gt;.
 </pre></div>
 </div>
-<p>Se revisa los trabajos enviados a la miztli se obtiene.</p>
+<p>Se revisan los trabajos enviados a la miztli se obtiene.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/run_files<span class="o">[</span><span class="m">13</span><span class="o">]</span><span class="w"> </span>bjobs
 JOBID<span class="w">   </span>USER<span class="w">    </span>STAT<span class="w">  </span>QUEUE<span class="w">      </span>FROM_HOST<span class="w">   </span>EXEC_HOST<span class="w">   </span>JOB_NAME<span class="w">   </span>SUBMIT_TIME
 <span class="m">193335</span><span class="w">  </span>ecabral<span class="w"> </span>RUN<span class="w">   </span>q_hpc<span class="w">      </span>mn325<span class="w">       </span>g2_b<span class="w">        </span>*aseline_0<span class="w"> </span>Sep<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">14</span>:31

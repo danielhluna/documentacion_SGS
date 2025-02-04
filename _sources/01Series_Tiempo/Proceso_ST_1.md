@@ -3,7 +3,7 @@
 
 Este documento describe, los pasos a seguir del flujo de trabajo para realizar una serie de tiempo con InSAR, usando imágenes de satélite de Sentinel 1A, haciendo uso de Miztli, ISCE2+InSAR, y Mintpy.
 
-Se recomienda antes de iniciar leer la documentación de los comandos básicos de Miztli, el cual se puede encontrar en la pagina [Supercomputo de la UNAM](https://www.super.unam.mx/guias-y-manuales).
+Se recomienda antes de iniciar leer la documentación de los comandos básicos de Miztli, el cual se puede encontrar en la página [Supercomputo de la UNAM](https://www.super.unam.mx/guias-y-manuales).
 
 Se ingresa a Miztli por medio de un usuario y contraseña, accediendo por medio de una conexión SSH, en donde se coloca el nombre del usuario un @ seguido de la dirección a conectar.
 
@@ -11,9 +11,9 @@ Se ingresa a Miztli por medio de un usuario y contraseña, accediendo por medio 
 ssh usuario@Direccion IP
 ```
 
-Los datos que se ingresan es el usuario y contraseña del Dr. Enrique Cabral Cano, que es el encargado del Servicio Geodésico y de Cartografiá Digital, es de su uso exclusivo, y el acceso solo se otorga mediante su autorización.
+Los datos que se ingresan es el usuario y contraseña del Dr. Enrique Cabral Cano, que es el encargado del Servicio Geodésico y de Cartografía Digital, es de su uso exclusivo, y el acceso solo se otorga mediante su autorización.
 
-Para ingresar a Miztli abrimos la terminal de nuestro sistema operativo, en linux la terminal, en windows cmd o powershell, Se escribe el siguiente comandos
+Para ingresar a Miztli abrimos la terminal de nuestro sistema operativo, en linux la terminal, en windows cmd o powershell, se escribe el siguiente comandos
 
 ```bash
 ssh -Y usuario@Direccion IP
@@ -55,7 +55,7 @@ s.c
 s.bgood
 ```
 
-Se muestra las siguientes lineas.
+Se muestran las siguientes lineas.
 
 ```bash
 [ecabral@mn325 ~]$ s.c
@@ -235,7 +235,7 @@ mintpy.save.kml                     = yes    #[yes / no], auto for yes, save geo
 Los datos necesarios para modificar el archivo template, se describen en la sección 3.1.1 de la tesis **CARACTERIZACIÓN DE SUBSIDENCIA Y EXPOSICIÓN DE LA POBLACIÓN VULNERABLE EN LA ZONA METROPOLITANA DE LA LAGUNA** 
 ```
 
-En el archivo anterior, se modifican datos importantes, como son la fecha de inicio y final de la serie de tiempo, donde buscara las imágenes de ese periodo de tiempo, y la órbita relativa de la imagen.
+En el archivo anterior, se modifican datos importantes, como son la fecha de inicio y final de la serie de tiempo, donde buscará las imágenes de ese periodo de tiempo, y la órbita relativa de la imagen.
 
 ```bash
 ssaraopt.relativeOrbit              = 12
@@ -244,9 +244,9 @@ ssaraopt.startDate                  = 20150101
 ssaraopt.endDate                    = 20151231
 ```
 
-Las coordenadas norte, sur, este y oeste, donde se buscaran las imágenes, recuerda solo poner un decimal, y las coordenadas tienen que estar en latitud y longitud, estos datos los obtuvimos de la sección anterior..
+Las coordenadas norte, sur, este y oeste, donde se buscaran las imágenes, recuerda solo poner un decimal, y las coordenadas tienen que estar en latitud y longitud, estos datos los obtuvimos de la sección anterior.
 
-También se pueden seleccionar los subswath que se procesan , para este caso se trabajara la escena completa.
+También se pueden seleccionar los subswath que se procesan , para este caso se trabajó la escena completa.
 
 ```bash
 topsStack.boundingBox               = '24.3 26.5 -104.8 -101.8' # '-1 0.15 -91.6 -90.9'
@@ -384,7 +384,7 @@ total 607536
 
 ## 3. Descarga de imagenes SAR
 
-Para descargar las imágenes que se usaran en la serie de tiempo, nos movemos en la carpeta SLC, de nuestro directorio generado, observamos el contenido, y revisamos el archivo `ssara_listing.txt` en donde nos mostrara las imagenes encontradas en el area configurada.
+Para descargar las imágenes que se usaran en la serie de tiempo, nos movemos en la carpeta SLC, de nuestro directorio generado, observamos el contenido, y revisamos el archivo `ssara_listing.txt` en donde nos mostrará las imágenes encontradas en el área configurada.
 
 ```bash
 //mn325/tmpu/ecabral_g/ecabral/scratch[1034] cd TorreonSenDT12_2014_2023/SLC/
@@ -398,9 +398,11 @@ total 740
 -rw-rw-r-- 1 ecabral ecabral_g 591389 Sep  7 13:52 ssara_search_20230907195223.kml
 ```
 
-> [!TIP]
->
-> Para observar el contenido de archivo `ssara_listing.txt` usaremos el comando `cat` o `more`.​
+
+
+```{tip}
+Para observar el contenido de archivo `ssara_listing.txt` usaremos el comando `cat` o `more`.
+```
 
 
 
@@ -429,9 +431,10 @@ A continuación, se accede al archivo **log** utilizando el comando `cat`, al ig
 ```
 
 
-> [!IMPORTANT]
->
-> Ser cuidadoso con la generación del archivo.
+
+```{importat}
+Ser cuidadoso con la generación del archivo.
+```
 
 
 
@@ -443,7 +446,7 @@ Se crea un archivo denominado **run** utilizando editores como **nano** o **vim*
 //mn325/tmpu/ecabral_g/ecabral/scratch/TorreonSenDT12_2014_2023/SLC[1040] nano run
 ```
 
-Se abre el editor, se pega la linea.
+Se abre el editor, se pega la línea.
 
 ```bash
 ssara_federated_query-cj.py --platform=SENTINEL-1A,SENTINEL-1B --relativeOrbit=12 --intersectsWith='Polygon((-104.80 24.30, -104.80 26.50, -101.80 26.50, -101.80 24.30, -104.80 24.30))' -s=2014-01-01 -e=2023-08-31 --parallel=20 --print --download
@@ -517,9 +520,9 @@ ls -l *.zip | wc -l
 
 
 
-> [!NOTE]
->
-> Es importante asegurarse de estar dentro de la carpeta correspondiente al proceso, específicamente en el directorio **SLC**, donde se almacenan las escenas, antes de ejecutar este comando.
+```{note}
+Es importante asegurarse de estar dentro de la carpeta correspondiente al proceso, específicamente en el directorio **SLC**, donde se almacenan las escenas, antes de ejecutar este comando.
+```
 
 
 
@@ -545,7 +548,7 @@ Posteriormente, se realiza una nueva verificación. Si la cantidad de imágenes 
 >
 > Se sugiere el siguiente procedimiento.
 >
-> Se observo que las imágenes descargadas que son 624 no coinciden con las imágenes encontradas en el `ssara_listing` que son 633, una de las razones es por que no se encuentran las imágenes, al momento de realizar el `split_jobs`, indica que ya termino la descargas, podemos pasar a procesar o realizar las siguientes instrucciones.
+> Se observó que las imágenes descargadas que son 624 no coinciden con las imágenes encontradas en el `ssara_listing` que son 633, una de las razones es por que no se encuentran las imágenes, al momento de realizar el `split_jobs`, indica que ya terminó la descargas, podemos pasar a procesar o realizar las siguientes instrucciones.
 >
 > 🚨 💡 🚨  
 > Debido a que no se encontraron todas la imágenes en el repositorio de **ASF**, el proceso no se completara, se espera a que finalice y se buscara que fechas se tiene que excluir.
@@ -576,7 +579,7 @@ Posteriormente, se realiza una nueva verificación. Si la cantidad de imágenes 
 > fecha1,fecha2,fecha3 
 > ```
 >
-> Se tiene que ubicar dentro de la carpeta `TE/carpeta_proyecto`, en donde se buscara el template a modificar.
+> Se tiene que ubicar dentro de la carpeta `TE/carpeta_proyecto`, en donde se busca el template a modificar.
 >
 > ```bash
 > cd $TE/dan
@@ -628,7 +631,7 @@ Posteriormente, se realiza una nueva verificación. Si la cantidad de imágenes 
 > topsStack.excludeDates              = 20220602,20150802,20150919  #auto for all dates
 > ```
 >
-> Se guarda los cambios, procedemos a enviar el proyecto, para que se descargue el DEM y el listado.
+> Se guardan los cambios, procedemos a enviar el proyecto, para que se descargue el DEM y el listado.
 >
 > ```bash
 > process_rsmas.py /tmpu/ecabral_g/ecabral/insarlab/infiles/ecabral/TEMPLATES/dan/TorreonSenDT12_2014_2023.template --submit 
@@ -714,7 +717,7 @@ JOBID   USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
 
 Si todo sale bien, en nuestro directorio se encontraran los resultados de la serie de tiempo. 
 
-Uno de los errores que puede ocurrir, es que no se termine el proceso con Mintpy debido al tiempo, para poderlo solucionar realizamos las [Tiempo de Mintpy](mintpy.md)
+Uno de los errores que puede ocurrir, es que no se termine el proceso con Mintpy debido al tiempo, para poderlo solucionar realizamos las [Series Tiempo Mintpy](mintpy.md).
 
 
 
