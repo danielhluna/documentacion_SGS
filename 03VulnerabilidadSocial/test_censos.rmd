@@ -1,0 +1,167 @@
+---
+title: "Untitled"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Bibliotecas
+En esta sección se cargan las bibliotecas necesarias para el análisis de los datos.
+
+```{r cars}
+#carga de bibliotecas para la base de datos
+library(tidyverse)
+#cargar las bibliotecas para lectura Shapefile
+library(sf)
+#cargar las bibliotecas para la generación de mapas
+library(leaflet)
+```
+
+## lectura de datos
+En esta sección se leen los datos de los censos de población y vivienda del INEGI.
+
+```{r tablas}
+dir <- "../../Desarollo/informacion/la_laguna/tabla"
+archivo <- "conjunto_de_datos_ageb_urbana_05_cpv2020.csv"
+dir_data <- file.path(dir, archivo)
+db_20 <- read.csv(dir_data, encoding = "UTF-8", stringsAsFactors = FALSE)
+
+dir2 <- "../../Desarollo/informacion/San_Luis/resultados_ageb_urbana_24_cpv2010/conjunto_de_datos"
+archivo2 <- "resultados_ageb_urbana_24_cpv2010_1.csv"
+dir_data2 <- file.path(dir2, archivo2)
+db_10 <- read.csv(dir_data2, encoding = "UTF-8", stringsAsFactors = FALSE)
+```
+
+## lectura de shapefiles
+
+
+```{r vetor}
+dir_shp <- "../../Desarollo/informacion/la_laguna/shp"
+archivo_shp <- "05a.shp"
+dir_shp <- file.path(dir_shp, archivo_shp)
+capa_ageb20 <- read_sf(dir_shp)
+
+dir_shp2 <- "../../Desarollo/informacion/San_Luis/702825292812_s"
+archivo_shp2 <- "AGEB_urb_2010_5.shp"
+dir_shp2 <- file.path(dir_shp2, archivo_shp2)
+capa_ageb10 <- read_sf(dir_shp2)
+```
+
+
+## Prueba programa
+
+```{r}
+# Cargar librerías necesarias
+library(dplyr)
+library(sf)
+library(readr)
+library(stringr)  # Para str_pad()
+
+# Definir la clase CensoINEGI
+CensoINEGI <- setRefClass("CensoINEGI",
+  fields = list(
+    anio = "numeric",
+    tabla = "data.frame",
+    vectorial = "sf"
+  ),
+
+  methods = list(
+
+    # Método para cargar la tabla del censo
+    cargar_tabla = function(ruta_tabla) {
+      mensaje <- paste("Cargando la tabla del censo", anio, "desde", ruta_tabla)
+      print(mensaje)
+      
+      # Leer tabla
+      tabla_cargada <- read_csv(ruta_tabla, show_col_types = FALSE)
+
+      # Convertir nombres de columnas a mayúsculas si es censo 2010
+      if (anio == 2010) {
+        colnames(tabla_cargada) <- toupper(colnames(tabla_cargada))
+      }
+
+      # Aplicar cero-padding
+      tabla_cargada <- tabla_cargada %>%
+        mutate(
+          ENTIDAD = str_pad(ENTIDAD, width = 2, side = "left", pad = "0"),
+          MUN = str_pad(MUN, width = 3, side = "left", pad = "0"),
+          LOC = str_pad(LOC, width = 4, side = "left", pad = "0"),
+          CVEGEO = paste0(ENTIDAD, MUN, LOC, AGEB)  # Generar CVEGEO corregido
+        )
+      
+      tabla <<- tabla_cargada
+      print("Tabla cargada correctamente.")
+    },
+
+    # Método para cargar la información vectorial
+    cargar_vectorial = function(ruta_vectorial) {
+      mensaje <- paste("Cargando la información vectorial del censo", anio, "desde", ruta_vectorial)
+      print(mensaje)
+
+      # Leer archivo vectorial
+      vectorial_cargado <- st_read(ruta_vectorial, quiet = TRUE)
+
+      if (anio == 2010) {
+        # Filtrar por entidad usando los primeros dos dígitos de CVEGEO
+        entidad_filtrar <- unique(tabla$ENTIDAD)[1]
+        vectorial_cargado <- vectorial_cargado %>%
+          filter(substr(CVEGEO, 1, 2) == entidad_filtrar)
+      } else if (anio == 2020) {
+        # Aplicar cero-padding a los campos clave
+        vectorial_cargado <- vectorial_cargado %>%
+          mutate(
+            CVE_ENT = str_pad(CVE_ENT, width = 2, side = "left", pad = "0"),
+            CVE_MUN = str_pad(CVE_MUN, width = 3, side = "left", pad = "0"),
+            CVE_LOC = str_pad(CVE_LOC, width = 4, side = "left", pad = "0"),
+            CVEGEO = paste0(CVE_ENT, CVE_MUN, CVE_LOC, CVE_AGEB)  # Generar CVEGEO corregido
+          )
+      }
+
+      vectorial <<- vectorial_cargado
+      print("Información vectorial cargada correctamente.")
+    },
+
+    # Método para unir la tabla con la información vectorial
+    unir_datos = function() {
+      print("Uniendo la tabla del censo con la información vectorial...")
+
+      datos_combinados <- vectorial %>%
+        left_join(tabla, by = "CVEGEO")
+
+      print("Datos combinados correctamente.")
+      return(datos_combinados)
+    }
+  )
+)
+
+# Función principal para ejecutar el programa
+ejecutar_censo <- function() {
+  anio <- as.numeric(readline("Ingrese el año del censo (2010 o 2020): "))
+
+  if (!(anio %in% c(2010, 2020))) {
+    stop("Año no válido. Debe ser 2010 o 2020.")
+  }
+
+  # Rutas de los archivos (ajusta según tu estructura de archivos)
+  ruta_tabla <- readline("Ingrese la ruta del archivo de la tabla: ")
+  ruta_vectorial <- readline("Ingrese la ruta del archivo vectorial: ")
+
+  # Crear instancia del objeto CensoINEGI
+  censo <- CensoINEGI$new(anio = anio)
+
+  # Cargar los datos
+  censo$cargar_tabla(ruta_tabla)
+  censo$cargar_vectorial(ruta_vectorial)
+
+  # Unir la información
+  datos_finales <- censo$unir_datos()
+
+  return(datos_finales)
+}
+
+# Ejecutar el programa
+datos_completos <- ejecutar_censo()
+
+```
