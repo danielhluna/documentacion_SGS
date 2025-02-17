@@ -64,7 +64,8 @@ CensoINEGI <- setRefClass("CensoINEGI",
   fields = list(
     anio = "numeric",
     tabla = "data.frame",
-    vectorial = "sf"
+    vectorial = "sf",
+    entidad_total = "data.frame"  # Nuevo campo para almacenar el total de la entidad
   ),
 
   methods = list(
@@ -81,6 +82,21 @@ CensoINEGI <- setRefClass("CensoINEGI",
       if (anio == 2010) {
         colnames(tabla_cargada) <- toupper(colnames(tabla_cargada))
       }
+
+      # Reemplazar * por NA en todas las columnas
+      tabla_cargada[tabla_cargada == "*"] <- NA
+
+      # Guardar el total de la entidad antes de filtrar por AGEB urbana
+      entidad_total <<- tabla_cargada %>%
+        filter(NOM_LOC == "Total de la entidad")
+
+      # Filtrar por NOM_LOC == "Total AGEB urbana"
+      tabla_cargada <- tabla_cargada %>%
+        filter(NOM_LOC == "Total AGEB urbana")
+
+      # Convertir campos str a entero
+      tabla_cargada <- tabla_cargada %>%
+        mutate_at(vars(c(10:ncol(tabla_cargada))), as.integer)
 
       # Aplicar cero-padding
       tabla_cargada <- tabla_cargada %>%
@@ -108,16 +124,7 @@ CensoINEGI <- setRefClass("CensoINEGI",
         entidad_filtrar <- unique(tabla$ENTIDAD)[1]
         vectorial_cargado <- vectorial_cargado %>%
           filter(substr(CVEGEO, 1, 2) == entidad_filtrar)
-      } else if (anio == 2020) {
-        # Aplicar cero-padding a los campos clave
-        vectorial_cargado <- vectorial_cargado %>%
-          mutate(
-            CVE_ENT = str_pad(CVE_ENT, width = 2, side = "left", pad = "0"),
-            CVE_MUN = str_pad(CVE_MUN, width = 3, side = "left", pad = "0"),
-            CVE_LOC = str_pad(CVE_LOC, width = 4, side = "left", pad = "0"),
-            CVEGEO = paste0(CVE_ENT, CVE_MUN, CVE_LOC, CVE_AGEB)  # Generar CVEGEO corregido
-          )
-      }
+      } 
 
       vectorial <<- vectorial_cargado
       print("Información vectorial cargada correctamente.")
